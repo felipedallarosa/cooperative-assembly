@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1" author="911340" runAlways="true" context="!local">
+        <sqlFile path="sql/999-GRANT-TABLE.sql" relativeToChangelogFile="true" endDelimiter="/"/>
+        <rollback>
+            <sqlFile path="sql/999-GRANT-TABLE-DESFAZER.sql" relativeToChangelogFile="true" endDelimiter="/"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="2" author="911340" runAlways="true" context="!local">
+        <sqlFile path="sql/998-GRANT-SEQUENCE.sql" relativeToChangelogFile="true" endDelimiter="/"/>
+        <rollback>
+            <sqlFile path="sql/998-GRANT-SEQUENCE-DESFAZER.sql" relativeToChangelogFile="true" endDelimiter="/"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="911340" runAlways="true" context="!local">
+        <sqlFile path="sql/997-GRANT-VIEWS.sql" relativeToChangelogFile="true" endDelimiter="/"/>
+        <rollback>
+            <sqlFile path="sql/997-GRANT-VIEWS-DESFAZER.sql" relativeToChangelogFile="true" endDelimiter="/"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

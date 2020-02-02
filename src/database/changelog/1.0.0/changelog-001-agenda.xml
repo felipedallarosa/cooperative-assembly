@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+						http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet id="20200202-1150" author="FelipeDallarosa">
+		<sqlFile path="data/001-CREATE-AGENDA.sql" relativeToChangelogFile="true"/>
+		<rollback>
+			<sqlFile path="data/001-CREATE-AGENDA-ROLLBACK.sql" relativeToChangelogFile="true"/>
+		</rollback>
+	</changeSet>
+
+	<changeSet id="20200202-1152" author="FelipeDallarosa">
+		<sqlFile path="data/001-CREATE-SEQUENCE-AGENDA.sql" relativeToChangelogFile="true"/>
+		<rollback>
+			<sqlFile path="data/001-CREATE-SEQUENCE-AGENDA-ROLLBACK.sql" relativeToChangelogFile="true"/>
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>

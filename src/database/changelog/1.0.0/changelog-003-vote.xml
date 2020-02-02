@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+						http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+	<changeSet id="20200202-0949" author="FelipeDallarosa">
+		<sqlFile path="data/003-CREATE-VOTE.sql" relativeToChangelogFile="true"/>
+		<rollback>
+			<sqlFile path="data/003-CREATE-VOTE-ROLLBACK.sql" relativeToChangelogFile="true"/>
+		</rollback>
+	</changeSet>
+
+	<changeSet id="20200202-0950" author="FelipeDallarosa">
+		<sqlFile path="data/003-CREATE-VOTE-SEQ.sql" relativeToChangelogFile="true"/>
+		<rollback>
+			<sqlFile path="data/003-CREATE-VOTE-SEQ-ROLLBACK.sql" relativeToChangelogFile="true"/>
+		</rollback>
+	</changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,65 @@
+logging:
+  level:
+    br.com.cooperative.assembly: DEBUG
+    org.springframework.boot.context: INFO
+
+server:
+  compression:
+    enabled: true
+  port: 8080
+
+spring:
+
+  application:
+    name: cooperative-assembly
+
+  datasource:
+    hikari: #https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby
+      minimum-idle: 2
+    url: jdbc:oracle:thin:@127.0.0.1:1521:xe
+    username: ASSEMBLY_OWNER
+    password: 123456
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: ASSEMBLY_OWNER
+
+  zipkin:
+    enabled: true
+
+  rabbitmq:
+    addresses: localhost:5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        default-requeue-rejected: false
+        concurrency: 5
+        retry:
+          enabled: true
+          initial-interval: 5000
+          max-attempts: 3
+          multiplier: 1.8
+
+  messages:
+    basename: i18n/messages
+
+springfox:
+  documentation:
+    info:
+      title: cooperative-assembly
+      description: Documentação do serviço de cooperative-assembly.
+      version: 1.0
+    base-package: br.com.cooperative.assembly
+
+voting-session:
+  minimun-time: 1
+
+client:
+  url:
+    userInfo: https://user-info.herokuapp.com

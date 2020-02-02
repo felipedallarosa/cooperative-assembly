@@ -1,0 +1,30 @@
+version: '3.6'
+
+services:
+  rabbitmq:
+    build: rabbitmq
+    image: my-rabbitmq
+    container_name: rabbitmq
+    hostname: rabbitmq
+    restart: on-failure
+    ports:
+      - 15672:15672
+      - 5672:5672
+    environment: 
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+      - RABBITMQ_DEFAULT_VHOST=/
+
+  oracle:
+    build: oracle
+    image: my-oracle
+    container_name: oracle
+    hostname: oracle
+    restart: on-failure
+    ports: 
+      - 1521:1521
+    environment: 
+      - ORACLE_ALLOW_REMOTE=true
+      - ORACLE_DISABLE_ASYNCH_IO=true 
+      - ORACLE_ENABLE_XDB=false
+
