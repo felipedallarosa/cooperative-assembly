@@ -12,13 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 public class VotingSessionConsumer {
 
     @RabbitListener(queues = VotingSessionRabbitResultConfiguration.QUEUE_NAME)
-    public void receive(VotingSessionResultResponse message) {
+    public void receive(String message) {
 
-        log.info("Init Message: {}", message);
+        log.warn("Init Message: {}", message);
 
-        log.info(message.toString());
+        log.warn(message);
 
-        log.info("Finish Message");
+        log.warn("Finish Message");
     }
 
 }

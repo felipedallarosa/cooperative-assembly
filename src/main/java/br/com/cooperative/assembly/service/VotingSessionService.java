@@ -41,6 +41,7 @@ public class VotingSessionService {
 
     @Transactional
     public VotingSessionDto openVotingSession(VotingSessionDto votingSessionDto) {
+        log.warn("Inserting new Voting Session {}.", votingSessionDto.toString());
 
         Agenda agenda = agendaService.findAgenda(votingSessionDto.getAgendaId());
 
@@ -48,12 +49,14 @@ public class VotingSessionService {
 
         VotingSession votingSession = votingSessionRepository.save(toVotingSession(votingSessionDto, agenda));
 
+        log.warn("New Voting Session Created {}.", votingSession.toString());
+
         return toVotingSessionDto(votingSession);
     }
 
     private void validateAnotherOpenVotingSession(final Agenda agenda) {
         if (votingSessionRepository.existsByOpenedAndAgenda(true, agenda)) {
-            log.error(messageService.get(VOTING_SESSION_ALREADY_OPENED));
+            log.error("There is already an open voting session. Agenda: {}.", agenda.toString());
             throw new BusinessException(messageService.get(VOTING_SESSION_ALREADY_OPENED));
         }
     }
@@ -70,18 +73,18 @@ public class VotingSessionService {
         }
     }
 
-    public List<Long> findAllInvalidOpenedSessionAndClose() {
+    public List<VotingSession> findAllInvalidOpenedSessionAndClose() {
 
         List<VotingSession> lstVotingSession = votingSessionRepository.findByOpened(true);
 
         return lstVotingSession.stream()
                                 .filter(VotingSession::shouldClose)
-                                .map(this::closeVotingSessionAndReturnAgendaId)
+                                .map(this::closeVotingSession)
                             .collect(Collectors.toList());
     }
 
-    private Long closeVotingSessionAndReturnAgendaId(VotingSession votingSession) {
+    private VotingSession closeVotingSession(VotingSession votingSession) {
         votingSession.setOpened(false);
-        return  votingSessionRepository.save(votingSession).getAgenda().getId();
+        return  votingSessionRepository.save(votingSession);
     }
 }

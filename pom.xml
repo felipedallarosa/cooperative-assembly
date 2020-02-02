@@ -15,7 +15,6 @@
     </parent>
 
     <properties>
-
         <!-- config -->
         <java.version>1.8</java.version>
         <spring.profiles.active>default</spring.profiles.active>
@@ -26,7 +25,6 @@
         <ojdbc.version>18.3</ojdbc.version>
     </properties>
 
-
     <dependencies>
 
         <!-- lombok  -->
@@ -36,6 +34,7 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Spring  -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -50,13 +49,11 @@
             <artifactId>spring-ws-core</artifactId>
         </dependency>
 
-
         <!-- feign client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
 
         <!--TESTE -->
         <dependency>
@@ -156,7 +153,6 @@
 
         </plugins>
     </build>
-
 
     <dependencyManagement>
         <dependencies>

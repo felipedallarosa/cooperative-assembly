@@ -32,10 +32,13 @@ public class AgendaService {
 
     @Transactional
     public AgendaDto insertAgenda(AgendaDto agendaDto) {
+        log.warn("Inserting new Agenda {}.", agendaDto.toString());
 
         validateRegistryAgenda(agendaDto);
 
         Agenda agenda = agendaRepository.save(toAgenda(agendaDto));
+
+        log.warn("New Agenda Created {}.", agenda.toString());
 
         return toAgendaDto(agenda);
     }
@@ -49,7 +52,7 @@ public class AgendaService {
 
     private void validateRegistryAgenda(final AgendaDto agendaDto) {
         if (agendaRepository.existsByDescription(agendaDto.getDescription())) {
-            log.error(messageService.get(AGENDA_REGISTRY_EXISTS));
+            log.error("There is already an open voting session. Agenda: {}.", agendaDto.toString());
             throw new BusinessException(messageService.get(AGENDA_REGISTRY_EXISTS));
         }
     }

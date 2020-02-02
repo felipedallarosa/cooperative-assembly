@@ -62,4 +62,4 @@ voting-session:
 
 client:
   url:
-    userInfo: https://user-info.herokuapp.com
+    userInfo: https://user-info.herokuapp.com/users

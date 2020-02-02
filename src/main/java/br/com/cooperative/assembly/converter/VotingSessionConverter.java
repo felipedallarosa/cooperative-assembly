@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import br.com.cooperative.assembly.controller.request.VotingSessionRequest;
 import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
 import br.com.cooperative.assembly.domain.Agenda;
 import br.com.cooperative.assembly.domain.VotingSession;
@@ -17,11 +16,11 @@ public class VotingSessionConverter {
     @Value("${voting-session.minimun-time}")
     private Long minimunTime = 1L;
 
-    public VotingSessionDto toVotingSessionDto(Long agendaId, VotingSessionRequest votingSessionRequest) {
+    public VotingSessionDto toVotingSessionDto(Long agendaId, Long timeVotingSession) {
         return VotingSessionDto.builder()
                             .agendaId(agendaId)
-                            .finishVotingSession(buildFinishVotingSession(votingSessionRequest.getTimeVotingSession()))
-                            .opened(false)
+                            .finishVotingSession(buildFinishVotingSession(timeVotingSession))
+                            .opened(true)
                         .build();
     }
 
@@ -35,6 +34,7 @@ public class VotingSessionConverter {
 
     public static VotingSessionDto toVotingSessionDto(VotingSession votingSession) {
         return VotingSessionDto.builder()
+                                .id(votingSession.getId())
                                 .agendaId(votingSession.getAgenda().getId())
                                 .finishVotingSession(votingSession.getFinishVotingSession())
                                 .opened(votingSession.isOpened())
@@ -43,6 +43,7 @@ public class VotingSessionConverter {
 
     public static VotingSessionResponse toVotingSessionResponse(final VotingSessionDto votingSessionDto) {
         return VotingSessionResponse.builder()
+                                    .id(votingSessionDto.getId())
                                     .agendaId(votingSessionDto.getAgendaId())
                                     .finishVotingSession(votingSessionDto.getFinishVotingSession())
                                     .opened(votingSessionDto.isOpened())
@@ -52,7 +53,7 @@ public class VotingSessionConverter {
     private LocalDateTime buildFinishVotingSession(Long timeVotingSession) {
         LocalDateTime startingVotingSession = LocalDateTime.now();
 
-        if (minimunTime.compareTo(timeVotingSession) < 0) {
+        if (minimunTime.compareTo(timeVotingSession) > 0) {
             timeVotingSession = minimunTime;
         }
 

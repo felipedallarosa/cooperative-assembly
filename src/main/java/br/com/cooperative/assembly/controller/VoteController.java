@@ -2,6 +2,7 @@ package br.com.cooperative.assembly.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,6 @@ public class VoteController {
     @ApiOperation(value = "Register Member Vote")
     public ResponseEntity<VoteResponse> registryVote(@PathVariable Long votingSessionId,
                                                      @Valid @RequestBody VoteRequest voteRequest) {
-        return ResponseEntity.ok(voteAdapter.handleRequest(votingSessionId, voteRequest));
+        return ResponseEntity.status(HttpStatus.CREATED).body(voteAdapter.handleRequest(votingSessionId, voteRequest));
     }
 }

@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class VotingSessionDto {
 
+    private Long id;
+
     private Long agendaId;
 
     private LocalDateTime finishVotingSession;

@@ -14,8 +14,6 @@ docker-compose logs -f
 docker-compose down
 ```
 
-### Serviços
-
 #### Oracle
 ```
 uri: jdbc:oracle:thin:@localhost:1521:XE

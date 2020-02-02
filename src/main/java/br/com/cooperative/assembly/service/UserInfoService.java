@@ -4,6 +4,7 @@ import static br.com.cooperative.assembly.domain.EnumMessage.EXTERNAL_SERVICE_UN
 
 import org.springframework.stereotype.Service;
 
+import br.com.cooperative.assembly.domain.UserInfo;
 import br.com.cooperative.assembly.facede.client.UserInfoClient;
 import br.com.cooperative.assembly.exception.FeignExceptionException;
 import feign.FeignException;
@@ -28,14 +29,17 @@ public class UserInfoService {
         boolean validDocument = false;
 
         try {
-            log.info("Trying information about Document {}.", document);
+            log.warn("Trying information about Document {}.", document);
 
-            validDocument = userInfoClient.findUser(document)
-                                        .isAbleToVote();
+            UserInfo userInfo = userInfoClient.findUser(document);
 
-            log.info("Sucess information about Document {}.", document);
+            log.warn("Result information about Document {}.", userInfo);
+
+            validDocument = userInfo.isAbleToVote();
+
+            log.warn("Sucess information about Document {}.", document);
         } catch (FeignException e) {
-            log.error("Error when try information about Document {}.", document, e);
+            log.error("Error when try information about Document {}.", document);
             throw new FeignExceptionException(messageService.get(EXTERNAL_SERVICE_UNAVALIABLE));
         }
 

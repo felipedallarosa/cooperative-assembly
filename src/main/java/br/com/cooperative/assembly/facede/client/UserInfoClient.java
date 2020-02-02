@@ -10,7 +10,7 @@ import br.com.cooperative.assembly.domain.UserInfo;
 @FeignClient(url = "${client.url.userInfo}", name = "userInfo-client")
 public interface UserInfoClient {
 
-    @GetMapping("/users/{document}")
-    UserInfo findUser(@PathVariable("document") String document);
+    @GetMapping("/{cpf}")
+    UserInfo findUser(@PathVariable("cpf") String document);
 
 }

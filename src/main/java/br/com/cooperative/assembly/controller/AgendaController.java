@@ -2,6 +2,7 @@ package br.com.cooperative.assembly.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,7 @@ public class AgendaController {
     @PostMapping
     @ApiOperation(value = "Generate a new agenda")
     public ResponseEntity<AgendaResponse> insertPauta(@Valid @RequestBody AgendaRequest agendaRequest) {
-        return ResponseEntity.ok(agendaAdapter.handleRequest(agendaRequest));
+        return ResponseEntity.status(HttpStatus.CREATED).body(agendaAdapter.handleRequest(agendaRequest));
     }
 
 }

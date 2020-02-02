@@ -40,6 +40,7 @@ public class VoteService {
 
     @Transactional
     public VoteDto registryVote(VoteDto voteDto) {
+        log.warn("Inserting new Vote {}.", voteDto.toString());
 
         validateDocumentNumber(voteDto);
 
@@ -49,19 +50,23 @@ public class VoteService {
 
         Vote vote = voteRepository.save(toVote(votingSession, voteDto));
 
+        log.warn("New Vote Registred {}.", vote.toString());
+
         return toVoteDto(vote);
     }
 
     private void validateDocumentNumber(final VoteDto voteDto) {
         if (!userInfoService.isValidDocument(voteDto.getDocument())) {
-            log.error(messageService.get(INVALID_DOCUMENT));
+            log.error("Invalid document. Vote: {}", voteDto.toString());
             throw new BusinessException(messageService.get(INVALID_DOCUMENT));
         }
     }
 
     private void validateVoteBefore(final VotingSession votingSession, final VoteDto voteDto) {
         if (voteRepository.existsByVotingSessionAndDocument(votingSession,voteDto.getDocument())) {
-            log.error(messageService.get(ASSOCIATE_ALREADY_VOTED));
+            log.error("Associate has already voted for this agenda. Voting Session: {} Vote: {}",
+                                votingSession.toString(),
+                                voteDto.toString());
             throw new BusinessException(messageService.get(ASSOCIATE_ALREADY_VOTED));
         }
     }

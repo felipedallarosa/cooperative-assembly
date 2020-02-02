@@ -1,6 +1,7 @@
 package br.com.cooperative.assembly.controller.request;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -16,10 +17,11 @@ import lombok.Setter;
 @EqualsAndHashCode
 public class VoteRequest {
 
-    @NotNull
+    @NotEmpty
     @Size(min=9, max=14)
+    @Pattern(regexp="\\d+")
     private String document;
 
-    @NotNull
+    @NotEmpty
     private boolean decision;
 }

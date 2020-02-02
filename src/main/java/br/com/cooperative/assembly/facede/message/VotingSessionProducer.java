@@ -20,7 +20,7 @@ public class VotingSessionProducer {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void send(final VotingSessionResultResponse message) {
+    public void send(final String message) {
         rabbitTemplate.convertAndSend(EXCHANGE_NAME, ROUTING_KEY_NAME, message);
     }
 

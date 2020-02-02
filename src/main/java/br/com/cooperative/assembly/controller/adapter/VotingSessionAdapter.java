@@ -5,10 +5,10 @@ import static br.com.cooperative.assembly.converter.VotingSessionResultConverter
 
 import org.springframework.stereotype.Component;
 
-import br.com.cooperative.assembly.controller.request.VotingSessionRequest;
 import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
 import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
 import br.com.cooperative.assembly.converter.VotingSessionConverter;
+import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VotingSessionDto;
 import br.com.cooperative.assembly.service.VotingSessionResultService;
 import br.com.cooperative.assembly.service.VotingSessionService;
@@ -30,16 +30,20 @@ public class VotingSessionAdapter {
         this.votingSessionConverter = votingSessionConverter;
     }
 
-    public VotingSessionResponse handleRequest(final Long agendaId, final VotingSessionRequest votingSessionRequest) {
+    public VotingSessionResponse handleRequest(final Long agendaId, final Long timeVotingSession) {
 
-        VotingSessionDto votingSessionDto = votingSessionConverter.toVotingSessionDto(agendaId, votingSessionRequest);
+        VotingSessionDto votingSessionDto = votingSessionConverter.toVotingSessionDto(agendaId, timeVotingSession);
 
         return toVotingSessionResponse(votingSessionService.openVotingSession(votingSessionDto));
     }
 
-    public VotingSessionResultResponse handleRequest(final Long votingSessionId) {
+    public VotingSessionResultResponse handleRequest(final VotingSession votingSession) {
 
-        return toVotingSessionResultResponse(votingSessionResultService.generateResult(votingSessionId));
+        return toVotingSessionResultResponse(votingSessionResultService.generateResult(votingSession));
     }
 
+    public VotingSessionResultResponse handleRequest(final Long votingSessionId) {
+
+        return toVotingSessionResultResponse(votingSessionResultService.generateResultById(votingSessionId));
+    }
 }

@@ -27,17 +27,17 @@ public class VotingSessionScheduler  {
         this.votingSessionProducer = votingSessionProducer;
     }
 
-    @Scheduled(cron = "1 * * * *")
+    @Scheduled(cron = "1 * * * * *")
     public void verifyInvalidOpenedVotingSession() {
-        log.info("Starting Scheduling...");
+        log.warn("Starting Scheduling...");
 
         votingSessionService.findAllInvalidOpenedSessionAndClose()
-            .forEach(votingSessionId -> {
-                VotingSessionResultResponse result = votingSessionAdapter.handleRequest(votingSessionId);
-                log.info("Sending Voting Session Result: " + result);
-                votingSessionProducer.send(result);
+            .forEach(votingSession -> {
+                VotingSessionResultResponse result = votingSessionAdapter.handleRequest(votingSession);
+                log.warn("Sending Voting Session Result: " + result);
+                votingSessionProducer.send(result.toString());
             });
 
-        log.info("Scheduling finished...");
+        log.warn("Scheduling finished...");
     }
 }

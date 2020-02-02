@@ -34,9 +34,12 @@ public class VotingSessionResultService {
         this.voteRepository = voteRepository;
     }
 
-    public VotingSessionResultDto generateResult(Long votingSessionId) {
+    public VotingSessionResultDto generateResultById(final Long votingSessionId) {
+        return generateResult(findVotingSessionById(votingSessionId));
+    }
 
-        VotingSession votingSession = findSessionById(votingSessionId);
+    public VotingSessionResultDto generateResult(VotingSession votingSession) {
+        log.warn("Init - Generate Result {}.", votingSession.toString());
 
         List<Vote> listVote = voteRepository.findByVotingSession(votingSession);
 
@@ -44,11 +47,13 @@ public class VotingSessionResultService {
 
         Long voteNo = listVote.stream().filter(Vote::isVoteNo).count();
 
+        log.warn("Finish - Generate Result {}.", votingSession.toString());
+
         return toVotingSessionResultDto(votingSession, voteYes, voteNo);
     }
 
-    private VotingSession findSessionById(final Long voteSessionId) {
-        return votingSessionRepository.findByOpenedAndId(true, voteSessionId)
+    private VotingSession findVotingSessionById(final Long voteSessionId) {
+        return votingSessionRepository.findById(voteSessionId)
             .orElseThrow(() -> new BusinessException(messageService.get(INVALID_VOTING_SESSION_OPENED)));
     }
 

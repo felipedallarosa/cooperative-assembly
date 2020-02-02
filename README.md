@@ -25,7 +25,7 @@ It is important that the agendas and votes are persisted and that they are not l
 
 ###Bonus tasks
 Bonus tasks are not mandatory, but they do allow us to evaluate other knowledge you may have. We always suggest that the candidate consider and present how far he can do, considering his level of knowledge and the quality of delivery.
- 
+
 ####Bonus Task 1 - Integration with external systems 
 Integrate with a system that verifies, from the member's CPF, if he can vote 
 
@@ -34,18 +34,17 @@ GET https://user-info.herokuapp.com/users/{cpf}
 If the CPF is invalid, the API will return HTTP Status 404 (Not found). You can use CPF generators to generate valid CPFs; 
 
 If the CPF is valid, the API will return if the user can (ABLE_TO_VOTE) or cannot (UNABLE_TO_VOTE) perform the operation
- 
+
 ####Bonus task 2 - Messaging and queues
 The result of the vote needs to be reported to the rest of the platform, this should preferably be done through messaging. When the voting session closes, post a message with the result of the vote.
- 
+
 ####Bonus Task 3 - Performance 
 Imagine that your application can be used in scenarios that have hundreds of thousands of votes. She must behave in a performative manner in these scenarios; ○ Performance tests are a good way to guarantee and observe how your application behaves.
- 
+
 ####Bonus Task 4 - API Versioning
 How would you version your application's API? What strategy to use?
 
 ##What will be analyzed
-
 - Simplicity in solution design (avoid over engineering) 
 - Code organization 
 - Project architecture 
