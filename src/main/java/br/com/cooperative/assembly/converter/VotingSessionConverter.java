@@ -14,8 +14,6 @@ import br.com.cooperative.assembly.dto.VotingSessionDto;
 @Component
 public class VotingSessionConverter {
 
-    private static final Long ZERO = 0L;
-
     @Value("${voting-session.minimun-time}")
     private Long minimunTime = 1L;
 
