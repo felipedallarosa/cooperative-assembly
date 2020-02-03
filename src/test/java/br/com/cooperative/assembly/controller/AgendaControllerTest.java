@@ -47,7 +47,7 @@ public class AgendaControllerTest {
     public void shouldCreateAgenda() throws Exception {
         AgendaRequest agendaRequest = AgendaRequest.builder().description(DESCRIPTION).build();
 
-        when(agendaAdapter.handleRequest(any())).thenReturn(new AgendaResponse());
+        when(agendaAdapter.handleRequest(any())).thenReturn(AgendaResponse.builder().build());
 
         String agendaRequestBody = jsonAgendaWriter.write(agendaRequest).getJson();
         MockHttpServletResponse response = mvc.perform(post("/v1/agenda")
@@ -63,7 +63,7 @@ public class AgendaControllerTest {
     public void tryCreateAgendaButInvalidDescription() throws Exception {
         AgendaRequest agendaRequest = AgendaRequest.builder().description(INVALID_DESCRIPTION).build();
 
-        when(agendaAdapter.handleRequest(any())).thenReturn(new AgendaResponse());
+        when(agendaAdapter.handleRequest(any())).thenReturn(AgendaResponse.builder().build());
 
         String agendaRequestBody = jsonAgendaWriter.write(agendaRequest).getJson();
         MockHttpServletResponse response = mvc.perform(post("/v1/agenda")

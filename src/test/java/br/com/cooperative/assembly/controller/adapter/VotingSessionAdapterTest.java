@@ -12,23 +12,18 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import br.com.cooperative.assembly.controller.request.VoteRequest;
-import br.com.cooperative.assembly.controller.response.VoteResponse;
 import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
 import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
 import br.com.cooperative.assembly.converter.VotingSessionConverter;
 import br.com.cooperative.assembly.domain.VotingSession;
-import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.dto.VotingSessionDto;
 import br.com.cooperative.assembly.dto.VotingSessionResultDto;
-import br.com.cooperative.assembly.service.VoteService;
 import br.com.cooperative.assembly.service.VotingSessionResultService;
 import br.com.cooperative.assembly.service.VotingSessionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class VotingSessionAdapterTest {
 
-    private static final String DOCUMENT = "83714006087";
     private static final Long ONE = 1L;
 
     private VotingSessionAdapter votingSessionAdapter;

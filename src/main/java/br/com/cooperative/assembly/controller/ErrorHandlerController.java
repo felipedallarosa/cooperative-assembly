@@ -31,13 +31,13 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(InvalidDocumentException.class)
-    public final ResponseEntity<ErrorResponse> handleBadRequestException(final InvalidDocumentException invalidDocumentException){
+    public final ResponseEntity<ErrorResponse> handleInvalidDocumentException(final InvalidDocumentException invalidDocumentException){
         ErrorResponse errorResponse = invalidDocumentException.getErrorResponse();
         return new ResponseEntity<>(errorResponse, invalidDocumentException.getType().getHttpStatus());
     }
 
     @ExceptionHandler(FeignExceptionException.class)
-    public final ResponseEntity<ErrorResponse> handleBadRequestException(final FeignExceptionException feignExceptionException){
+    public final ResponseEntity<ErrorResponse> handleFeignExceptionException(final FeignExceptionException feignExceptionException){
         ErrorResponse errorResponse = feignExceptionException.getErrorResponse();
         return new ResponseEntity<>(errorResponse, feignExceptionException.getType().getHttpStatus());
     }

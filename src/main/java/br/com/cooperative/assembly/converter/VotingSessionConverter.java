@@ -1,6 +1,7 @@
 package br.com.cooperative.assembly.converter;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -12,6 +13,8 @@ import br.com.cooperative.assembly.dto.VotingSessionDto;
 
 @Component
 public class VotingSessionConverter {
+
+    private static final Long ZERO = 0L;
 
     @Value("${voting-session.minimun-time}")
     private Long minimunTime = 1L;
@@ -53,7 +56,8 @@ public class VotingSessionConverter {
     private LocalDateTime buildFinishVotingSession(Long timeVotingSession) {
         LocalDateTime startingVotingSession = LocalDateTime.now();
 
-        if (minimunTime.compareTo(timeVotingSession) > 0) {
+        if ( Objects.isNull(timeVotingSession) ||
+            minimunTime.compareTo(timeVotingSession) > 0) {
             timeVotingSession = minimunTime;
         }
 

@@ -3,15 +3,11 @@ package br.com.cooperative.assembly.controller.response;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
+@Getter
 @Builder
+@AllArgsConstructor
 public class AgendaResponse {
 
     private Long id;

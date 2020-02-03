@@ -35,7 +35,7 @@ public class VotingSessionControllerTest {
     @Test
     public void shouldCreateVotingSession() throws Exception {
 
-        when(votingSessionAdapter.handleRequest(ONE,ONE)).thenReturn(new VotingSessionResponse());
+        when(votingSessionAdapter.handleRequest(ONE,ONE)).thenReturn(VotingSessionResponse.builder().build());
 
         MockHttpServletResponse response = mvc.perform(post("/v1/votingSession/1?timeVotingSession=1")
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
@@ -48,7 +48,7 @@ public class VotingSessionControllerTest {
     @Test
     public void shouldSearchResultVotingSession() throws Exception {
 
-        when(votingSessionAdapter.handleRequest(ONE)).thenReturn(new VotingSessionResultResponse());
+        when(votingSessionAdapter.handleRequest(ONE)).thenReturn(VotingSessionResultResponse.builder().build());
 
         MockHttpServletResponse response = mvc.perform(get("/v1/votingSession/1")
             .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))

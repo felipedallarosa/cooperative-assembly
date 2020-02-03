@@ -2,15 +2,11 @@ package br.com.cooperative.assembly.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode
+@Getter
 @Builder
+@AllArgsConstructor
 public class VoteResponse {
 
     private Long voteSessionId;

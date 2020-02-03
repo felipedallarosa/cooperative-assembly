@@ -10,7 +10,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class InvalidDocumentException extends RuntimeException {
 
         private final ErrorResponse errorResponse;

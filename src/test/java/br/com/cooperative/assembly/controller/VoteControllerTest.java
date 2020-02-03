@@ -47,7 +47,7 @@ public class VoteControllerTest {
     public void shouldVote() throws Exception {
         VoteRequest voteRequest = VoteRequest.builder().decision(true).document(DOCUMENT).build();
 
-        when(voteAdapter.handleRequest(any(),any())).thenReturn(new VoteResponse());
+        when(voteAdapter.handleRequest(any(),any())).thenReturn(VoteResponse.builder().build());
 
         String voteRequestBody = jsonVoteWriter.write(voteRequest).getJson();
         MockHttpServletResponse response = mvc.perform(post("/v1/vote/1")
@@ -63,7 +63,7 @@ public class VoteControllerTest {
     public void tryVoteButInvalidDocument() throws Exception {
         VoteRequest voteRequest = VoteRequest.builder().decision(true).document(INVALID_DOCUMENT).build();
 
-        when(voteAdapter.handleRequest(any(),any())).thenReturn(new VoteResponse());
+        when(voteAdapter.handleRequest(any(),any())).thenReturn(VoteResponse.builder().build());
 
         String voteRequestBody = jsonVoteWriter.write(voteRequest).getJson();
         MockHttpServletResponse response = mvc.perform(post("/v1/vote/1")
