@@ -38,6 +38,7 @@ Para esse projeto foram escolhidas as sequintes tecnologias:
 - Na documentação: o "Swagger" para gerar uma documentação do código.
 - Na inspeção do código: o "Sonar" para uma inspeção contínua da qualidade do código.
 - No teste unitário: o "Junit", "Mock", "Mockito" para assegurar o funcionamento do código de forma aderente as regras de negócio.
+- No teste de performance: o "JMeter" para validar o desempenho da aplicação.
 - Na cobertura de testes: o "Jacoco" para análise da cobertura de testes pois integra facilmente com o Sonar.
 
 Outras decisões de arquitetura
@@ -57,7 +58,12 @@ Para Performance
 -- No serviço de Voto, o serviço Externo de verificação de cpf, poderá ser paralelizado (CompletableFuture) com as chamadas de validação alimentadas pelo banco de dados.
 -- No serviço de Voto, ao finalizar o processamento já existente, deverá ser atualizado o totalizador daquela sessão de votação no Reddis. 
 -- O serviço de geração de resultado, irá ser alimentado dos dados vindos do Reddis.
+
+Pontos para discussões DEVOPS
 -- A segurança deverá ser revista, devendo ser adicionado alguma autenticação segura tipo "oauth2"
+-- Adicionar um Vault/Wallet para a guarda das senhas.
+-- Adicionar o Consul para centralização de configuração por ambiente.
+-- Integração com Jaegger/Graylog para centralização de Log.
 
 ## Goal: 
 In cooperatives, each member has one vote and decisions are taken in assemblies, by vote. 
