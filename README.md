@@ -38,7 +38,7 @@ Para esse projeto foram escolhidas as sequintes tecnologias:
 - Na documentação: o "Swagger" para gerar uma documentação do código.
 - Na inspeção do código: o "Sonar" para uma inspeção contínua da qualidade do código.
 - No teste unitário: o "Junit", "Mock", "Mockito" para assegurar o funcionamento do código de forma aderente as regras de negócio.
-- No teste de performance: o "JMeter" para validar o desempenho da aplicação.
+- No teste de performance: o "JMeter" para validar o desempenho da votação.
 - Na cobertura de testes: o "Jacoco" para análise da cobertura de testes pois integra facilmente com o Sonar.
 
 Outras decisões de arquitetura

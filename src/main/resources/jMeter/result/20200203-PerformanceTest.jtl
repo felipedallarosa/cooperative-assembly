@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="4220" it="0" lt="0" ct="4219" ts="1580762750391" s="false" lb="Call HTTP to Create Agenda" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-4" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4355" it="0" lt="0" ct="4353" ts="1580762749992" s="false" lb="Call HTTP to Create Agenda" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-2" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4527" it="0" lt="0" ct="4527" ts="1580762750186" s="false" lb="Call HTTP to Create Agenda" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-3" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4435" it="0" lt="0" ct="4414" ts="1580762749909" s="false" lb="Call HTTP to Create Agenda" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-1" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4517" it="0" lt="0" ct="4517" ts="1580762750591" s="false" lb="Call HTTP to Create Agenda" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-5" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4189" it="0" lt="0" ct="4189" ts="1580762754819" s="false" lb="Call HTTP to Open a Voting Session" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-4" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4220" it="0" lt="0" ct="4220" ts="1580762754794" s="false" lb="Call HTTP to Open a Voting Session" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-1" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4318" it="0" lt="0" ct="4318" ts="1580762754790" s="false" lb="Call HTTP to Open a Voting Session" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-2" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4324" it="0" lt="0" ct="4324" ts="1580762754791" s="false" lb="Call HTTP to Open a Voting Session" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-3" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4297" it="0" lt="0" ct="4297" ts="1580762755111" s="false" lb="Call HTTP to Open a Voting Session" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-5" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4309" it="0" lt="0" ct="4309" ts="1580762759114" s="false" lb="Call HTTP Vote" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-2" dt="text" by="2288" sby="0" ng="5" na="5">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4097" it="0" lt="0" ct="4097" ts="1580762759410" s="false" lb="Call HTTP Vote" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-5" dt="text" by="2288" sby="0" ng="4" na="4">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4511" it="0" lt="0" ct="4511" ts="1580762759019" s="false" lb="Call HTTP Vote" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-1" dt="text" by="2288" sby="0" ng="3" na="3">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4716" it="0" lt="0" ct="4715" ts="1580762759012" s="false" lb="Call HTTP Vote" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-4" dt="text" by="2288" sby="0" ng="2" na="2">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+<httpSample t="4693" it="0" lt="0" ct="4693" ts="1580762759118" s="false" lb="Call HTTP Vote" rc="Non HTTP response code: java.net.ConnectException" rm="Non HTTP response message: Connection refused: connect" tn="Grupo de Usuários 1-3" dt="text" by="2288" sby="0" ng="1" na="1">
+  <assertionResult>
+    <name>Verify Create Agenda</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Voting Session</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+  <assertionResult>
+    <name>Verify Open a Vote</name>
+    <failure>true</failure>
+    <error>false</error>
+    <failureMessage>Test failed: code expected something using /
+
+****** received  : [[[Non HTTP response code: java.net.ConnectException]]]
+
+****** comparison: [[[201                                              ]]]
+
+/</failureMessage>
+  </assertionResult>
+</httpSample>
+
+</testResults>
