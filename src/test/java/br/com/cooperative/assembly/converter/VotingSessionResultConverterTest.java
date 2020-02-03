@@ -10,10 +10,7 @@ public class VotingSessionResultConverterTest {
 
     @Test(expected = IllegalStateException.class)
     public void tryCreateVotingSessionResultConverter(){
-
-        //then
         new VotingSessionResultConverter();
-
     }
 
 }

@@ -47,7 +47,7 @@ public class VotingSessionResultServiceTest {
 
     @Test
     public void shouldOpenVotingSessionSucessuful(){
-        // given
+
         Agenda agenda = Agenda.builder().id(ONE).build();
         VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda)
             .opened(true).finishVotingSession(LocalDateTime.now().plusMinutes(10)).build();
@@ -59,10 +59,8 @@ public class VotingSessionResultServiceTest {
 
         when(votingSessionRepository.save(any(VotingSession.class))).thenReturn(votingSessionDb);
 
-        // when
         VotingSessionResultDto response =  votingSessionResultService.generateResultById(ONE);
 
-        //then
         assertEquals( ONE , response.getVoteYes() );
         assertEquals( ZERO , response.getVoteNo() );
         assertEquals( ONE , response.getVotingSession().getId() );
@@ -70,11 +68,9 @@ public class VotingSessionResultServiceTest {
 
     @Test(expected = BusinessException.class)
     public void tryOpenVotingSessionButNoVOtingSessionFound(){
-        // given
 
         when(votingSessionRepository.findById(ONE)).thenReturn(Optional.empty());
 
-        // when
         VotingSessionResultDto response =  votingSessionResultService.generateResultById(ONE);
 
     }

@@ -10,10 +10,7 @@ public class AgendaConverterTest {
 
     @Test(expected = IllegalStateException.class)
     public void tryCreateAgendaConverter(){
-
-        //then
         new AgendaConverter();
-
     }
 
 }

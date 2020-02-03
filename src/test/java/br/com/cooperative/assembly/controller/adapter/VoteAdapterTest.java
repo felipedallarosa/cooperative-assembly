@@ -34,16 +34,13 @@ public class VoteAdapterTest {
 
     @Test
     public void shouldAdapterVoteSucessuful(){
-        // given
         VoteRequest request = VoteRequest.builder().document(DOCUMENT).decision(true).build();
         VoteDto response = VoteDto.builder().document(DOCUMENT).decision(true).voteSessionId(ONE).build();
 
         when(voteService.registryVote(any())).thenReturn( response );
 
-        // when
         VoteResponse out =  voteAdapter.handleRequest(ONE, request);
 
-        //then
         assertEquals( ONE , out.getVoteSessionId() );
         assertEquals( DOCUMENT , out.getDocument() );
 

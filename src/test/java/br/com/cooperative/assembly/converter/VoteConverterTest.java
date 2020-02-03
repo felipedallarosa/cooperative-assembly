@@ -10,10 +10,7 @@ public class VoteConverterTest {
 
     @Test(expected = IllegalStateException.class)
     public void tryCreateVoteConverter(){
-
-        //then
         new VoteConverter();
-
     }
 
 }

@@ -9,8 +9,6 @@ public class ErrorMessageTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void tryCreateErrorMessage(){
-
-        //then
         new ErrorMessage();
     }
 

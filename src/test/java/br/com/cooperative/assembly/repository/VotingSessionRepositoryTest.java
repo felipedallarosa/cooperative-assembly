@@ -26,18 +26,21 @@ public class VotingSessionRepositoryTest {
     public void existsByOpenedAndAgenda() {
         Agenda agenda = Agenda.builder().id(ONE).description("test agenda").build();
         boolean result = votingSessionRepository.existsByOpenedAndAgenda(false, agenda);
+
         Assert.assertTrue( result );
     }
 
     @Test
     public void findByOpenedAndId() {
         Optional<VotingSession> result = votingSessionRepository.findByOpenedAndId(false, ONE);
+
         Assert.assertEquals( ONE, result.get().getId() );
     }
 
     @Test
     public void findByOpened() {
         List<VotingSession> result = votingSessionRepository.findByOpened(false);
+
         Assert.assertFalse( result.isEmpty() );
     }
 }

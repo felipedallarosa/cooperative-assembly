@@ -28,26 +28,20 @@ public class MessageServiceTest {
     }
 
     @Test
-    public void getMessageButNull(){
-        // given
+    public void testGetMessageButNull(){
 
-        // when
         String response =  messageService.get(null);
 
-        //then
         assertEquals("", response );
     }
 
     @Test
-    public void getMessage(){
-        // given
+    public void testGetMessage(){
 
-        // when
         when(messageSource.getMessage(any(), any(), any())).thenReturn(INVALID_DOCUMENT);
 
         String response =  messageService.get(EnumMessage.INVALID_DOCUMENT);
 
-        //then
         assertEquals(INVALID_DOCUMENT , response );
     }
 }

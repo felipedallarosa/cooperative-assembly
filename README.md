@@ -1,7 +1,31 @@
 # Technical Challenge
 
 ## To run the project:
-    
+For the environment, the database "oracle-xe" and the message "rabbitmq" are needed, which can be started inside the "\docker" folder with the command below:
+
+`` shell
+docker-compose up -d
+``
+(Make sure that the "docker\oracle\init.sql" file has been executed, as it is responsible for creating the schema and user).
+
+To set up the database structure, "liquibase" was used, which can be started inside the "\database" folder with the commands below:
+
+```shell
+#Check the available packs to update the structure
+.\database_verbose.ps1
+
+#Update the structure
+.\database_update.ps1
+
+#If you need to rollback
+. \ database_rollback.ps1
+```
+
+To properly start the project
+
+```shell
+mvn clean install spring-boot: run
+```
 
 ## Goal: 
 In cooperatives, each member has one vote and decisions are taken in assemblies, by vote. 

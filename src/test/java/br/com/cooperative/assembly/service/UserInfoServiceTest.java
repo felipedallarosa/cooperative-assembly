@@ -34,38 +34,32 @@ public class UserInfoServiceTest {
 
     @Test
     public void verifyIsValidDocumentSucessufulAndAbleToVote(){
-        // given
+
         UserInfo response = UserInfo.builder().status("ABLE_TO_VOTE").build();
         when(userInfoClient.findUser(DOCUMENT)).thenReturn(response);
 
-        // when
         Boolean isValid =  userInfoService.isValidDocument(DOCUMENT);
 
-        //then
         assertTrue( isValid );
     }
 
     @Test
     public void verifyIsValidDocumentSucessufulAndUnableToVote(){
-        // given
+
         UserInfo response = UserInfo.builder().status("UNABLE_TO_VOTE").build();
         when(userInfoClient.findUser(DOCUMENT)).thenReturn(response);
 
-        // when
         Boolean isValid =  userInfoService.isValidDocument(DOCUMENT);
 
-        //then
         assertFalse( isValid );
     }
 
     @Test(expected = FeignExceptionException.class)
     public void verifyIsValidDocumentButServerError(){
-        // given
+
         when(userInfoClient.findUser(DOCUMENT)).thenThrow(FeignException.class);
 
-        // when
         Boolean isValid =  userInfoService.isValidDocument(DOCUMENT);
-
     }
 
 

@@ -30,6 +30,7 @@ public class AgendaControllerTest {
 
     private static final String DESCRIPTION = "TEST OF DESCRIPTION";
     private static final String INVALID_DESCRIPTION = "TEST";
+
     @Autowired
     private MockMvc mvc;
 

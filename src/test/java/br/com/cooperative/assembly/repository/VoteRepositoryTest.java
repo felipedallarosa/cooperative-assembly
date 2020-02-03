@@ -1,10 +1,7 @@
 package br.com.cooperative.assembly.repository;
 
-import static org.junit.Assert.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -32,7 +29,9 @@ public class VoteRepositoryTest {
         Agenda agenda = Agenda.builder().id(ONE).description("test agenda").build();
         VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda).finishVotingSession(
             LocalDateTime.of(2030,01,17,0,0)).build();
+
         boolean result = voteRepository.existsByVotingSessionAndDocument(votingSessionDb, DOCUMENT);
+
         Assert.assertTrue( result );
     }
 
@@ -41,7 +40,9 @@ public class VoteRepositoryTest {
         Agenda agenda = Agenda.builder().id(ONE).description("test agenda").build();
         VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda).finishVotingSession(
             LocalDateTime.of(2030,01,17,0,0)).build();
+
         List<Vote> result = voteRepository.findByVotingSession(votingSessionDb);
+
         Assert.assertFalse( result.isEmpty() );
     }
 }

@@ -24,8 +24,9 @@ public class ErrorHandlerControllerTest {
     }
 
     @Test
-    public void testleBusinessException() {
+    public void testBusinessException() {
         BusinessException businessException = new BusinessException("Err");
+
         ResponseEntity<ErrorResponse> response = errorHandlerController.handleBusinessException(businessException);
 
         Assert.assertEquals(HttpStatus.PRECONDITION_FAILED, response.getStatusCode());
@@ -34,6 +35,7 @@ public class ErrorHandlerControllerTest {
     @Test
     public void testBadRequestException() {
         InvalidDocumentException invalidDocumentException = new InvalidDocumentException("Err");
+
         ResponseEntity<ErrorResponse> response = errorHandlerController.handleInvalidDocumentException(invalidDocumentException);
 
         Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
@@ -42,6 +44,7 @@ public class ErrorHandlerControllerTest {
     @Test
     public void testFeignExceptionException() {
         FeignExceptionException feignExceptionException = new FeignExceptionException("Err");
+
         ResponseEntity<ErrorResponse> response = errorHandlerController.handleFeignExceptionException(feignExceptionException);
 
         Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());

@@ -23,12 +23,14 @@ public class AgendaRepositoryTest {
     @Test
     public void existsByDescription() {
         boolean result = agendaRepository.existsByDescription("test agenda");
+
         Assert.assertTrue( result );
     }
 
     @Test
     public void findById() {
         Optional<Agenda> result = agendaRepository.findById(ONE);
+
         Assert.assertTrue( result.isPresent() );
     }
 }

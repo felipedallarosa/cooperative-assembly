@@ -44,39 +44,35 @@ public class VotingSessionAdapterTest {
 
     @Test
     public void shouldVotingSessionAdapterSucessuful(){
-        // given
+
         VotingSessionDto response = VotingSessionDto.builder().agendaId(ONE).opened(true)
             .finishVotingSession(LocalDateTime.now()).id(ONE).build();
 
         when(votingSessionService.openVotingSession(any())).thenReturn( response );
 
-        // when
         VotingSessionResponse out =  votingSessionAdapter.handleRequest(ONE, ONE);
 
-        //then
         assertEquals( ONE , out.getId() );
         assertEquals( ONE , out.getAgendaId() );
     }
 
     @Test
     public void shouldVotingSessionAdapterSucessufulWhenNullTime(){
-        // given
+
         VotingSessionDto response = VotingSessionDto.builder().agendaId(ONE).opened(true)
             .finishVotingSession(LocalDateTime.now()).id(ONE).build();
 
         when(votingSessionService.openVotingSession(any())).thenReturn( response );
 
-        // when
         VotingSessionResponse out =  votingSessionAdapter.handleRequest(ONE, null);
 
-        //then
         assertEquals( ONE , out.getId() );
         assertEquals( ONE , out.getAgendaId() );
     }
 
     @Test
     public void shouldVotingResultAdapterSucessufulById(){
-        // given
+
         VotingSession votingSession = VotingSession.builder().id(ONE).build();
 
         VotingSessionResultDto response = VotingSessionResultDto.builder().voteNo(ONE).voteYes(ONE)
@@ -84,10 +80,8 @@ public class VotingSessionAdapterTest {
 
         when(votingSessionResultService.generateResultById(any())).thenReturn( response );
 
-        // when
         VotingSessionResultResponse out =  votingSessionAdapter.handleRequest(ONE);
 
-        //then
         assertEquals( ONE , out.getVoteNo() );
         assertEquals( ONE , out.getVoteYes() );
         assertEquals( ONE , out.getVotingSession().getId() );
@@ -96,7 +90,7 @@ public class VotingSessionAdapterTest {
 
     @Test
     public void shouldVotingResultAdapterSucessufulBySchedualer(){
-        // given
+
         VotingSession votingSession = VotingSession.builder().id(ONE).build();
 
         VotingSessionResultDto response = VotingSessionResultDto.builder().voteNo(ONE).voteYes(ONE)
@@ -104,10 +98,8 @@ public class VotingSessionAdapterTest {
 
         when(votingSessionResultService.generateResult(any())).thenReturn( response );
 
-        // when
         VotingSessionResultResponse out =  votingSessionAdapter.handleRequest(votingSession);
 
-        //then
         assertEquals( ONE , out.getVoteNo() );
         assertEquals( ONE , out.getVoteYes() );
         assertEquals( ONE , out.getVotingSession().getId() );

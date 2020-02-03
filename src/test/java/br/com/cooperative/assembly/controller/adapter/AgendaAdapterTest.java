@@ -34,16 +34,14 @@ public class AgendaAdapterTest {
 
     @Test
     public void shouldAdapterAgendaSucessuful(){
-        // given
+
         AgendaRequest request = AgendaRequest.builder().description(DESCRIPTION).build();
         AgendaDto response = AgendaDto.builder().id(ONE).description(DESCRIPTION).build();
 
         when(agendaService.insertAgenda(any())).thenReturn( response );
 
-        // when
         AgendaResponse out =  agendaAdapter.handleRequest(request);
 
-        //then
         assertEquals( ONE , out.getId() );
         assertEquals( DESCRIPTION , out .getDescription() );
 
