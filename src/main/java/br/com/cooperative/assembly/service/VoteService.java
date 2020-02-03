@@ -13,6 +13,7 @@ import br.com.cooperative.assembly.domain.Vote;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.exception.BusinessException;
+import br.com.cooperative.assembly.exception.InvalidDocumentException;
 import br.com.cooperative.assembly.repository.VoteRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -58,7 +59,7 @@ public class VoteService {
     private void validateDocumentNumber(final VoteDto voteDto) {
         if (!userInfoService.isValidDocument(voteDto.getDocument())) {
             log.error("Invalid document. Vote: {}", voteDto.toString());
-            throw new BusinessException(messageService.get(INVALID_DOCUMENT));
+            throw new InvalidDocumentException(messageService.get(INVALID_DOCUMENT));
         }
     }
 

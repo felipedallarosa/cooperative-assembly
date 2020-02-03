@@ -1,12 +1,12 @@
 package br.com.cooperative.assembly.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserInfo {
 
     private static final String ABLE_TO_VOTE = "ABLE_TO_VOTE";

@@ -2,14 +2,12 @@ package br.com.cooperative.assembly.controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -19,6 +17,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import br.com.cooperative.assembly.exception.BusinessException;
 import br.com.cooperative.assembly.exception.ErrorResponse;
 import br.com.cooperative.assembly.exception.FeignExceptionException;
+import br.com.cooperative.assembly.exception.InvalidDocumentException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -29,6 +28,12 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     public final ResponseEntity<ErrorResponse> handleBusinessException(final BusinessException businessException){
         ErrorResponse errorResponse = businessException.getErrorResponse();
         return new ResponseEntity<>(errorResponse, businessException.getType().getHttpStatus());
+    }
+
+    @ExceptionHandler(InvalidDocumentException.class)
+    public final ResponseEntity<ErrorResponse> handleBadRequestException(final InvalidDocumentException invalidDocumentException){
+        ErrorResponse errorResponse = invalidDocumentException.getErrorResponse();
+        return new ResponseEntity<>(errorResponse, invalidDocumentException.getType().getHttpStatus());
     }
 
     @ExceptionHandler(FeignExceptionException.class)

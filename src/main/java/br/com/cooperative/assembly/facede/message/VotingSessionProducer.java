@@ -7,7 +7,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
 import org.springframework.stereotype.Component;
 
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Component

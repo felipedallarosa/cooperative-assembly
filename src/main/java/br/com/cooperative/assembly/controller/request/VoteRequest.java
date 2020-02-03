@@ -5,23 +5,22 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
 public class VoteRequest {
 
     @NotEmpty
-    @Size(min=9, max=14)
+    @Size(min=9, max=11)
     @Pattern(regexp="\\d+")
     private String document;
 
-    @NotEmpty
     private boolean decision;
 }

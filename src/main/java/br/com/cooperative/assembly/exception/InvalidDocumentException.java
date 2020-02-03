@@ -11,12 +11,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class FeignExceptionException extends RuntimeException {
+public class InvalidDocumentException extends RuntimeException {
 
         private final ErrorResponse errorResponse;
         private final ErrorType type;
 
-        public FeignExceptionException(String message) {
+        public InvalidDocumentException(String message) {
             super(message);
             this.type = ErrorType.NOT_FOUND;
             errorResponse = new ErrorResponse(
