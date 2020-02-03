@@ -27,6 +27,38 @@ To properly start the project
 mvn clean install spring-boot: run
 ```
 
+## Decisões de arquitetura:
+
+Para esse projeto foram escolhidas as sequintes tecnologias:
+- Na mensageria: o "RabbitMQ" pela simplicidade de implementação.
+- No banco de dados: o "Oracle-xe" pela sua robustes e performance, aguentando perfeitamento grande fluxos de dados. (Entretanto, caso a empresa não tenha licença, pode ser trocado facilmente por um MongoDB ou MySQL)
+- No versionamento de banco de dados: o "liquibase" pela sua adaptabilidade em diversos database.
+- No versionamento de código: o "GitHub" pela rastreabilidade de alterações entre outros.
+- Na criação de classe de dados: o "lombok" pela sua limpeza de código proporcionada.
+- Na documentação: o "Swagger" para gerar uma documentação do código.
+- Na inspeção do código: o "Sonar" para uma inspeção contínua da qualidade do código.
+- No teste unitário: o "Junit", "Mock", "Mockito" para assegurar o funcionamento do código de forma aderente as regras de negócio.
+- Na cobertura de testes: o "Jacoco" para análise da cobertura de testes pois integra facilmente com o Sonar.
+
+Outras decisões de arquitetura
+- No versionamento da aplicação: As "Controller" possuem versionamento via URL.
+- Para fechamento de sessões de votações e envio para a mensageria foi escolhido o "Scheduller" do próprio SpringBoot.
+- O App deverá ter resposta multi idioma, conforme a localização.
+- As classes nativas de dados não poderão serem expostas externamente.
+- Os dados externos, vindo das controllers, deverão ser validados e adaptados antes de serem enviados aos Services.
+
+Para Performance
+- Na v1 foi utilizado a otimização de código.
+
+- Para evitar um over engineering, foi deixado para uma v2 as seguintes sugestões:
+-- Criação de indices no banco de dados.
+-- Os dados transitados na fila deverão estar no formato JSON.
+-- Os serviços serão assincronos, sendo que as requisições vindas do controllerV2, passaram pelo adapter e o adapter irá postar em na fila "Rabbit". (Para gerenciamento do processamento, será utilizado o Reddis)
+-- No serviço de Voto, o serviço Externo de verificação de cpf, poderá ser paralelizado (CompletableFuture) com as chamadas de validação alimentadas pelo banco de dados.
+-- No serviço de Voto, ao finalizar o processamento já existente, deverá ser atualizado o totalizador daquela sessão de votação no Reddis. 
+-- O serviço de geração de resultado, irá ser alimentado dos dados vindos do Reddis.
+-- A segurança deverá ser revista, devendo ser adicionado alguma autenticação segura tipo "oauth2"
+
 ## Goal: 
 In cooperatives, each member has one vote and decisions are taken in assemblies, by vote. 
 From there, you need to create a back-end solution to manage these voting sessions.
