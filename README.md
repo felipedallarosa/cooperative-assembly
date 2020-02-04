@@ -26,44 +26,43 @@ To properly start the project
 ```shell
 mvn clean install spring-boot: run
 ```
+## Architectural decisions:
 
-## Decisões de arquitetura:
+The following technologies were chosen for this project:
+- In messaging: "RabbitMQ" for the simplicity of implementation.
+- In the database: "Oracle-xe" for its robustness and performance, withstanding large data flows perfectly. (However, if the company does not have a license, it can be easily exchanged for a MongoDB or MySQL)
+- Database versioning: the "liquibase" for its adaptability in several databases.
+- Code versioning: "GitHub" for tracking changes, among others.
+- When creating a data class: the "lombok" for its clean code provided.
+- In the documentation: the "Swagger" to generate a documentation of the code.
+- On code inspection: "Sonar" for continuous inspection of code quality.
+- In the unit test: "Junit", "Mock", "Mockito" to ensure the operation of the code in accordance with the business rules.
+- In the performance test: the "JMeter" to validate the voting performance.
+- In test coverage: the "Jacoco" for analysis of test coverage as it integrates easily with Sonar.
 
-Para esse projeto foram escolhidas as sequintes tecnologias:
-- Na mensageria: o "RabbitMQ" pela simplicidade de implementação.
-- No banco de dados: o "Oracle-xe" pela sua robustes e performance, aguentando perfeitamento grande fluxos de dados. (Entretanto, caso a empresa não tenha licença, pode ser trocado facilmente por um MongoDB ou MySQL)
-- No versionamento de banco de dados: o "liquibase" pela sua adaptabilidade em diversos database.
-- No versionamento de código: o "GitHub" pela rastreabilidade de alterações entre outros.
-- Na criação de classe de dados: o "lombok" pela sua limpeza de código proporcionada.
-- Na documentação: o "Swagger" para gerar uma documentação do código.
-- Na inspeção do código: o "Sonar" para uma inspeção contínua da qualidade do código.
-- No teste unitário: o "Junit", "Mock", "Mockito" para assegurar o funcionamento do código de forma aderente as regras de negócio.
-- No teste de performance: o "JMeter" para validar o desempenho da votação.
-- Na cobertura de testes: o "Jacoco" para análise da cobertura de testes pois integra facilmente com o Sonar.
+Other architectural decisions
+- In the versioning of the application: The "Controller" have versioning via URL.
+- To close polling sessions and send messages, SpringBoot's own "Scheduller" was chosen.
+- The App must have a multi-language response, depending on the location.
+- Native classes of data cannot be exposed externally.
+- The external data, coming from the controllers, must be validated and adapted before being sent to the Services.
 
-Outras decisões de arquitetura
-- No versionamento da aplicação: As "Controller" possuem versionamento via URL.
-- Para fechamento de sessões de votações e envio para a mensageria foi escolhido o "Scheduller" do próprio SpringBoot.
-- O App deverá ter resposta multi idioma, conforme a localização.
-- As classes nativas de dados não poderão serem expostas externamente.
-- Os dados externos, vindo das controllers, deverão ser validados e adaptados antes de serem enviados aos Services.
+For Performance
+- In v1, code optimization was used.
 
-Para Performance
-- Na v1 foi utilizado a otimização de código.
+- To avoid over engineering, the following suggestions were left for a v2:
+- Creation of indexes in the database.
+- The data carried over in the queue must be in JSON format.
+- The services will be asynchronous, and the requests coming from the controllerV2, passed through the adapter and the adapter will post in the "Rabbit" queue. (For processing management, Reddis will be used)
+- In the Voting service, the External cpf verification service can be parallelized (CompletableFuture) with the validation calls fed by the database.
+- In the Voting service, at the end of the existing processing, the total of that voting session in Reddis must be updated.
+- The result generation service will be fed with data from Reddis.
 
-- Para evitar um over engineering, foi deixado para uma v2 as seguintes sugestões:
--- Criação de indices no banco de dados.
--- Os dados transitados na fila deverão estar no formato JSON.
--- Os serviços serão assincronos, sendo que as requisições vindas do controllerV2, passaram pelo adapter e o adapter irá postar em na fila "Rabbit". (Para gerenciamento do processamento, será utilizado o Reddis)
--- No serviço de Voto, o serviço Externo de verificação de cpf, poderá ser paralelizado (CompletableFuture) com as chamadas de validação alimentadas pelo banco de dados.
--- No serviço de Voto, ao finalizar o processamento já existente, deverá ser atualizado o totalizador daquela sessão de votação no Reddis. 
--- O serviço de geração de resultado, irá ser alimentado dos dados vindos do Reddis.
-
-Pontos para discussões DEVOPS
--- A segurança deverá ser revista, devendo ser adicionado alguma autenticação segura tipo "oauth2"
--- Adicionar um Vault/Wallet para a guarda das senhas.
--- Adicionar o Consul para centralização de configuração por ambiente.
--- Integração com Jaegger/Graylog para centralização de Log.
+Points for DEVOPS discussions
+- Security should be reviewed, and some secure authentication type "oauth2" must be added
+- Add a Vault / Wallet to store passwords.
+- Add the Consul to centralize configuration by environment.
+- Integration with Jaegger / Graylog for centralization of Log.
 
 ## Goal: 
 In cooperatives, each member has one vote and decisions are taken in assemblies, by vote. 
@@ -101,10 +100,11 @@ If the CPF is valid, the API will return if the user can (ABLE_TO_VOTE) or canno
 The result of the vote needs to be reported to the rest of the platform, this should preferably be done through messaging. When the voting session closes, post a message with the result of the vote.
 
 ####Bonus Task 3 - Performance 
-Imagine that your application can be used in scenarios that have hundreds of thousands of votes. She must behave in a performative manner in these scenarios; ○ Performance tests are a good way to guarantee and observe how your application behaves.
+Imagine that your application can be used in scenarios that have hundreds of thousands of votes. It must behave in a performative manner in these scenarios; 
+- Performance tests are a good way to guarantee and observe how your application behaves.
 
 ####Bonus Task 4 - API Versioning
-How would you version your application's API? What strategy to use?
+How will you do the version of your application's API? What strategy to use?
 
 ##What will be analyzed
 - Simplicity in solution design (avoid over engineering) 
@@ -113,7 +113,7 @@ How would you version your application's API? What strategy to use?
 - Good programming practices (maintainability, readability, etc.) 
 - Possible bugs 
 - Handling errors and exceptions 
-- Brief explanation of why the choices made during development of the solution 
+- Brief explanation of why the choices were made during development of the solution 
 - Use of automated tests and quality tools 
 - Code cleaning 
 - Documentation of the code and API 
