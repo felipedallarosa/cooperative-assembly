@@ -30,10 +30,8 @@ public class UserInfoService {
     @Async
     public CompletableFuture<Boolean> isValidDocumentAsync(String document) {
 
-        CompletableFuture<Boolean> response =
-            CompletableFuture.supplyAsync(() -> this.isValidDocument(document));
+        return CompletableFuture.supplyAsync(() -> this.isValidDocument(document));
 
-        return response;
     }
 
 

@@ -6,7 +6,6 @@ import static br.com.cooperative.assembly.domain.EnumMessage.ASSOCIATE_ALREADY_V
 import static br.com.cooperative.assembly.domain.EnumMessage.INVALID_DOCUMENT;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 import javax.transaction.Transactional;
 
@@ -71,7 +70,7 @@ public class VoteService {
         return votingSession;
     }
 
-    private void validateDocumentNumber(final VoteDto voteDto, final Boolean isValidDocument) {
+    private void validateDocumentNumber(final VoteDto voteDto, final boolean isValidDocument) {
         if (!isValidDocument) {
             log.error("Invalid document. Vote: {}", voteDto.toString());
             throw new InvalidDocumentException(messageService.get(INVALID_DOCUMENT));

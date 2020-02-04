@@ -1,4 +1,4 @@
-package br.com.lojasrenner.mvlcp.config;
+package br.com.cooperative.assembly.config;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
