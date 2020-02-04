@@ -48,13 +48,13 @@ Other architectural decisions
 - The external data, coming from the controllers, must be validated and adapted before being sent to the Services.
 
 For Performance
-- In v1, code optimization was used.
+- Code optimization was used.
+- Indexes in the database.
+- Used CompletableFuture to the External cpf verification.
 
 - To avoid over engineering, the following suggestions were left for a v2:
--- Creation of indexes in the database.
 -- The data carried over in the queue must be in JSON format.
 -- The services will be asynchronous, and the requests coming from the controllerV2, passed through the adapter and the adapter will post in the "Rabbit" queue. (For processing management, Reddis will be used)
--- In the Voting service, the External cpf verification service can be parallelized (CompletableFuture) with the validation calls fed by the database.
 -- In the Voting service, at the end of the existing processing, the total of that voting session in Reddis must be updated.
 -- The result generation service will be fed with data from Reddis.
 

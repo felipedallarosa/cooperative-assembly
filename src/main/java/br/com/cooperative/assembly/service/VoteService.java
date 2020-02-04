@@ -5,6 +5,9 @@ import static br.com.cooperative.assembly.converter.VoteConverter.toVoteDto;
 import static br.com.cooperative.assembly.domain.EnumMessage.ASSOCIATE_ALREADY_VOTED;
 import static br.com.cooperative.assembly.domain.EnumMessage.INVALID_DOCUMENT;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -43,11 +46,7 @@ public class VoteService {
     public VoteDto registryVote(VoteDto voteDto) {
         log.warn("Inserting new Vote {}.", voteDto.toString());
 
-        validateDocumentNumber(voteDto);
-
-        VotingSession votingSession = votingSessionService.findOpenedSessionById(voteDto.getVoteSessionId());
-
-        validateVoteBefore(votingSession, voteDto);
+        VotingSession votingSession = validateVoteAndReturnVotingSession(voteDto);
 
         Vote vote = voteRepository.save(toVote(votingSession, voteDto));
 
@@ -56,8 +55,24 @@ public class VoteService {
         return toVoteDto(vote);
     }
 
-    private void validateDocumentNumber(final VoteDto voteDto) {
-        if (!userInfoService.isValidDocument(voteDto.getDocument())) {
+    private VotingSession validateVoteAndReturnVotingSession(final VoteDto voteDto) {
+        CompletableFuture<Boolean> isValidDocument = userInfoService.isValidDocumentAsync(voteDto.getDocument());
+
+        VotingSession votingSession = votingSessionService.findOpenedSessionById(voteDto.getVoteSessionId());
+
+        validateVoteBefore(votingSession, voteDto);
+
+        try {
+            CompletableFuture.allOf(isValidDocument).join();
+            validateDocumentNumber(voteDto, isValidDocument.get());
+        } catch (Throwable e) {
+            validateDocumentNumber(voteDto, Boolean.FALSE);
+        }
+        return votingSession;
+    }
+
+    private void validateDocumentNumber(final VoteDto voteDto, final Boolean isValidDocument) {
+        if (!isValidDocument) {
             log.error("Invalid document. Vote: {}", voteDto.toString());
             throw new InvalidDocumentException(messageService.get(INVALID_DOCUMENT));
         }

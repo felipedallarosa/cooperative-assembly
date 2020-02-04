@@ -2,6 +2,9 @@ package br.com.cooperative.assembly.service;
 
 import static br.com.cooperative.assembly.domain.EnumMessage.EXTERNAL_SERVICE_UNAVALIABLE;
 
+import java.util.concurrent.CompletableFuture;
+
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import br.com.cooperative.assembly.domain.UserInfo;
@@ -23,6 +26,16 @@ public class UserInfoService {
         this.messageService = messageService;
         this.userInfoClient = userInfoClient;
     }
+
+    @Async
+    public CompletableFuture<Boolean> isValidDocumentAsync(String document) {
+
+        CompletableFuture<Boolean> response =
+            CompletableFuture.supplyAsync(() -> this.isValidDocument(document));
+
+        return response;
+    }
+
 
     public boolean isValidDocument(String document) {
 

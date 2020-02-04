@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+import java.util.concurrent.CompletableFuture;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,11 +51,13 @@ public class VoteServiceTest {
         VotingSession votingSession = VotingSession.builder().id(ONE).build();
         Vote voteDb = Vote.builder().id(ONE).decision(true).document(DOCUMENT).votingSession(votingSession).build();
 
-        when(userInfoService.isValidDocument(DOCUMENT)).thenReturn( Boolean.TRUE);
+        CompletableFuture<Boolean> bool = CompletableFuture.supplyAsync(() -> Boolean.TRUE);
+
+        when(userInfoService.isValidDocumentAsync(DOCUMENT)).thenReturn( bool );
 
         when(votingSessionService.findOpenedSessionById(any())).thenReturn(votingSession);
 
-        when(voteRepository.existsByVotingSessionAndDocument(any(),any())).thenReturn(Boolean.FALSE);
+        when(voteRepository.existsByVotingSessionAndDocument(any(),any())).thenReturn( Boolean.FALSE);
 
         when(voteRepository.save(any(Vote.class))).thenReturn(voteDb);
 

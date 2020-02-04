@@ -6,5 +6,6 @@
     <include file="changelog-001-agenda.xml" relativeToChangelogFile="true" />
     <include file="changelog-002-voting_session.xml" relativeToChangelogFile="true" />
     <include file="changelog-003-vote.xml" relativeToChangelogFile="true" />
+    <include file="changelog-004-index.xml" relativeToChangelogFile="true" />
 
 </databaseChangeLog>
