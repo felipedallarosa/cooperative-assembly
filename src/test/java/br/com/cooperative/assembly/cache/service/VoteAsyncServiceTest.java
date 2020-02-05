@@ -6,6 +6,7 @@ import static org.mockito.Mockito.*;
 
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -72,15 +73,14 @@ public class VoteAsyncServiceTest {
     @Test
     public void shouldVerifyResultVoteAsyncOnRedisSucessuful(){
 
-        try{
-            VoteRequestRedis voteRedis = getVoteRequestRedis();
+        VoteRequestRedis voteRedis = getVoteRequestRedis();
 
-            when(voteRequestRedisRepository.findById(any())).thenReturn( Optional.of(voteRedis) );
+        when(voteRequestRedisRepository.findById(any())).thenReturn( Optional.of(voteRedis) );
 
-            voteAsyncService.executeReceiveRequest(ONE, DOCUMENT);
-        } catch(Exception e) {
-            fail("Should not have thrown any exception");
-        }
+        VoteDto vote = voteAsyncService.executeReceiveRequest(ONE, DOCUMENT);
+
+        Assert.assertEquals(ONE, vote.getVoteSessionId());
+        Assert.assertEquals(DOCUMENT, vote.getDocument());
     }
 
     @Test( expected = ProcessingException.class)

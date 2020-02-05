@@ -21,7 +21,7 @@ public class VotingSessionResultConsumerTest {
     }
 
     @Test
-    public void main() {
+    public void shouldReceiveVotingSessionResult() {
         try {
             votingSessionResultConsumer.receive(VotingSessionResultResponse.builder().build());
         } catch(Exception e) {

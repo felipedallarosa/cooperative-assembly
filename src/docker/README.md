@@ -1,4 +1,4 @@
-### Inicializar o ambiente local
+### Init Local envrioment
 
 ```shell
 # start
@@ -40,13 +40,13 @@ REDIS_PASSWORD: 123456
 #### Redis Commander
 - http://localhost:16379
 
-### Administração Web
+###  Web Administration
 #### RabbitMQ
 - http://localhost:15672
 - user: guest
 - pass: guest
 
-### Referências
+### Reference
 * https://docs.docker.com/compose/reference/
 * https://hub.docker.com/_/rabbitmq
 * https://github.com/wnameless/docker-oracle-xe-11g

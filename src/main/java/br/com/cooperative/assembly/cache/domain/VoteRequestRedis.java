@@ -4,21 +4,14 @@ import java.io.Serializable;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
-import org.springframework.data.redis.core.TimeToLive;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
-@EqualsAndHashCode(of = "id")
 @RedisHash("VOTE_REQUEST_REDIS")
 public class VoteRequestRedis implements Serializable {
 
@@ -38,9 +31,6 @@ public class VoteRequestRedis implements Serializable {
     private String errException;
 
     private String txtException;
-
-    @TimeToLive
-    private Long timeToLive;
 
     public VoteRequestRedis(final Long voteSessionId, final String document, final boolean decision) {
         this.id=generateId(voteSessionId,document);

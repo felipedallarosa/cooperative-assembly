@@ -1,11 +1,13 @@
 package br.com.cooperative.assembly.controller.v2.adapter;
 
 import static br.com.cooperative.assembly.converter.VoteConverter.toVoteDto;
+import static br.com.cooperative.assembly.converter.VoteConverter.toVoteResponse;
 
 import org.springframework.stereotype.Component;
 
 import br.com.cooperative.assembly.cache.service.VoteAsyncService;
 import br.com.cooperative.assembly.controller.request.VoteRequest;
+import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
 import br.com.cooperative.assembly.dto.VoteDto;
 @Component
 public class VoteAsyncAdapter {
@@ -23,9 +25,9 @@ public class VoteAsyncAdapter {
         voteAsyncService.executeSendRequest(voteDto);
     }
 
-    public void handleRequest(final Long votingSessionId, final String document) {
+    public VoteResponse handleRequest(final Long votingSessionId, final String document) {
 
-        voteAsyncService.executeReceiveRequest(votingSessionId, document);
+        return toVoteResponse(voteAsyncService.executeReceiveRequest(votingSessionId, document));
 
     }
 }

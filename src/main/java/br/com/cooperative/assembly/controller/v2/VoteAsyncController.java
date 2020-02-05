@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.cooperative.assembly.controller.request.VoteRequest;
+import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
 import br.com.cooperative.assembly.controller.v2.adapter.VoteAsyncAdapter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,9 +41,8 @@ public class VoteAsyncController {
 
     @GetMapping(value="/{votingSessionId}/{document}")
     @ApiOperation(value = "Get Status Member Vote")
-    public ResponseEntity<Void> registryVote(@PathVariable Long votingSessionId,
+    public ResponseEntity<VoteResponse> registryVote(@PathVariable Long votingSessionId,
         @PathVariable String document) {
-        voteAsyncAdapter.handleRequest(votingSessionId, document);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        return ResponseEntity.status(HttpStatus.CREATED).body(voteAsyncAdapter.handleRequest(votingSessionId, document));
     }
 }

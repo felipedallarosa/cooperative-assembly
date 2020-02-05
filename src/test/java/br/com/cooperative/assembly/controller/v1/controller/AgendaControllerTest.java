@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller;
+package br.com.cooperative.assembly.controller.v1.controller;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;

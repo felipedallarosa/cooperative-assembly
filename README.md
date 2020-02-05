@@ -1,7 +1,7 @@
 # Technical Challenge
 
 ## To run the project:
-For the environment, the database "oracle-xe" and the message "rabbitmq" are needed, which can be started inside the "\docker" folder with the command below:
+For the environment, the database "oracle-xe", the cache database "Redis" and the message "rabbitmq" are needed, which can be started inside the "\docker" folder with the command below:
 
 `` shell
 docker-compose up -d
@@ -31,6 +31,7 @@ mvn clean install spring-boot: run
 The following technologies were chosen for this project:
 - In messaging: "RabbitMQ" for the simplicity of implementation.
 - In the database: "Oracle-xe" for its robustness and performance, withstanding large data flows perfectly. (However, if the company does not have a license, it can be easily exchanged for a MongoDB or MySQL)
+- In the cache database: "Redis" for velocity key-value.
 - Database versioning: the "liquibase" for its adaptability in several databases.
 - Code versioning: "GitHub" for tracking changes, among others.
 - When creating a data class: the "lombok" for its clean code provided.
@@ -39,6 +40,7 @@ The following technologies were chosen for this project:
 - In the unit test: "Junit", "Mock", "Mockito" to ensure the operation of the code in accordance with the business rules.
 - In the performance test: the "JMeter" to validate the voting performance.
 - In test coverage: the "Jacoco" for analysis of test coverage as it integrates easily with Sonar.
+- In standard config: "yeoman-api-generator" for fast start programing.
 
 Other architectural decisions
 - In the versioning of the application: The "Controller" have versioning via URL.

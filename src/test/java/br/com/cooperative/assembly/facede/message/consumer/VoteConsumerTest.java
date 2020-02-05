@@ -25,7 +25,7 @@ public class VoteConsumerTest {
     }
 
     @Test
-    public void main() {
+    public void shouldReceiveVoteRequest() {
             VoteDto vote = VoteDto.builder().build();
             voteConsumer.receive(vote);
 

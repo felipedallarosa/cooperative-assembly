@@ -3,6 +3,8 @@ package br.com.cooperative.assembly.service;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
+import java.util.concurrent.CompletableFuture;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +32,22 @@ public class UserInfoServiceTest {
     @Before
     public void setUp() {
         userInfoService = new UserInfoService(messageService, userInfoClient);
+    }
+
+    @Test
+    public void verifyIsValidDocumentAsyncSucessufulAndAbleToVote(){
+
+        UserInfo response = UserInfo.builder().status("ABLE_TO_VOTE").build();
+        when(userInfoClient.findUser(DOCUMENT)).thenReturn(response);
+
+        CompletableFuture<Boolean> isValidDocument =  userInfoService.isValidDocumentAsync(DOCUMENT);
+
+        try {
+            CompletableFuture.allOf(isValidDocument).join();
+            assertTrue( isValidDocument.get() );
+        } catch (Exception e) {
+            fail("Should not have thrown any exception");
+        }
     }
 
     @Test

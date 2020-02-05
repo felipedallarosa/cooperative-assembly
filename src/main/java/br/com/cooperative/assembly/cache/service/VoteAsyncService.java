@@ -1,5 +1,6 @@
 package br.com.cooperative.assembly.cache.service;
 
+import static br.com.cooperative.assembly.converter.VoteConverter.toVoteDto;
 import static br.com.cooperative.assembly.converter.VoteRequestRedisConverter.generateId;
 import static br.com.cooperative.assembly.converter.VoteRequestRedisConverter.toVoteRequestRedis;
 import static br.com.cooperative.assembly.domain.EnumMessage.ASSOCIATE_ALREADY_VOTED;
@@ -57,7 +58,7 @@ public class VoteAsyncService {
     }
 
     @Transactional
-    public void executeReceiveRequest(final Long votingSessionId, final String document) {
+    public VoteDto executeReceiveRequest(final Long votingSessionId, final String document) {
         String id = generateId(votingSessionId, document);
 
         VoteRequestRedis vote = voteRequestRedisRepository.findById(id)
@@ -66,6 +67,8 @@ public class VoteAsyncService {
         if (!vote.getProcessed()) { throw new ProcessingException(""); }
 
         verifyError(vote);
+
+        return toVoteDto(vote);
 
     }
 

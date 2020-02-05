@@ -1,5 +1,6 @@
 package br.com.cooperative.assembly.converter;
 
+import br.com.cooperative.assembly.cache.domain.VoteRequestRedis;
 import br.com.cooperative.assembly.controller.request.VoteRequest;
 import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
 import br.com.cooperative.assembly.domain.Vote;
@@ -44,5 +45,14 @@ public class VoteConverter {
                     .document(voteDto.getDocument())
                     .decision(voteDto.isDecision())
                 .build();
+    }
+
+    public static VoteDto toVoteDto(VoteRequestRedis vote) {
+        return VoteDto.builder()
+                .id(vote.getVoteId())
+                .voteSessionId(vote.getVoteSessionId())
+                .document(vote.getDocument())
+                .decision(vote.isDecision())
+            .build();
     }
 }
