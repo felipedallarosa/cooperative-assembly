@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.facede.message;
+package br.com.cooperative.assembly.facede.message.consumer;
 
 import static org.junit.Assert.*;
 

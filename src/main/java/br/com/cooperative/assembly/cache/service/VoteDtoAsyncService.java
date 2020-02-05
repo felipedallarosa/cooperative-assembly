@@ -1,11 +1,12 @@
 package br.com.cooperative.assembly.cache.service;
 
+import static br.com.cooperative.assembly.converter.VoteRequestRedisConverter.generateId;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.com.cooperative.assembly.cache.domain.VoteRequestRedis;
 import br.com.cooperative.assembly.cache.repository.VoteRequestRedisRepository;
-import br.com.cooperative.assembly.converter.VoteRequestRedisConverter;
 import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.service.VoteService;
 import lombok.extern.slf4j.Slf4j;
@@ -16,22 +17,19 @@ public class VoteDtoAsyncService {
 
     private VoteRequestRedisRepository voteRequestRedisRepository;
 
-    private VoteRequestRedisConverter voteRequestRedisConverter;
-
     private VoteService voteService;
 
     public VoteDtoAsyncService(
         final VoteRequestRedisRepository voteRequestRedisRepository,
-        final VoteRequestRedisConverter voteRequestRedisConverter, final VoteService voteService) {
+        final VoteService voteService) {
         this.voteRequestRedisRepository = voteRequestRedisRepository;
-        this.voteRequestRedisConverter = voteRequestRedisConverter;
         this.voteService = voteService;
     }
 
     @Transactional
     public void executeReceiveRequest(final VoteDto voteDto) {
 
-        String id = voteRequestRedisConverter.generateId(voteDto);
+        String id = generateId(voteDto);
 
         voteRequestRedisRepository.findById(id)
             .ifPresent(voteRequestRedis -> {

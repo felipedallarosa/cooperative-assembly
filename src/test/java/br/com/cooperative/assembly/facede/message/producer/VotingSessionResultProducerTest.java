@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.facede.message;
+package br.com.cooperative.assembly.facede.message.producer;
 
 import static br.com.cooperative.assembly.config.CooperativeAssemblyConfiguration.EXCHANGE_NAME;
 import static br.com.cooperative.assembly.config.message.VotingSessionResultRabbitConfiguration.ROUTING_KEY_NAME;

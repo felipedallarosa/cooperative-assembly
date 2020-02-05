@@ -12,6 +12,7 @@ import br.com.cooperative.assembly.exception.BusinessException;
 import br.com.cooperative.assembly.exception.ErrorResponse;
 import br.com.cooperative.assembly.exception.FeignExceptionException;
 import br.com.cooperative.assembly.exception.InvalidDocumentException;
+import br.com.cooperative.assembly.exception.ProcessingException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ErrorHandlerControllerTest {
@@ -48,5 +49,14 @@ public class ErrorHandlerControllerTest {
         ResponseEntity<ErrorResponse> response = errorHandlerController.handleFeignExceptionException(feignExceptionException);
 
         Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+    }
+
+    @Test
+    public void testProcessingException() {
+        ProcessingException processingException = new ProcessingException("");
+
+        ResponseEntity<ErrorResponse> response = errorHandlerController.handleProcessingException(processingException);
+
+        Assert.assertEquals(HttpStatus.PROCESSING, response.getStatusCode());
     }
 }
