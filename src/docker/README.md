@@ -48,5 +48,7 @@ REDIS_PASSWORD: 123456
 
 ### Reference
 * https://docs.docker.com/compose/reference/
+* https://hub.docker.com/r/bitnami/redis/
+* https://www.npmjs.com/package/redis-commander
 * https://hub.docker.com/_/rabbitmq
 * https://github.com/wnameless/docker-oracle-xe-11g
