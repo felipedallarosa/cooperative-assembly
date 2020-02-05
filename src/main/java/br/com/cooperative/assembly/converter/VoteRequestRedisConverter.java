@@ -12,7 +12,7 @@ public class VoteRequestRedisConverter {
     public static VoteRequestRedis toVoteRequestRedis(VoteDto voteDto) {
         return new VoteRequestRedis(voteDto.getVoteSessionId(),
             voteDto.getDocument(),
-            voteDto.isDecision());
+            voteDto.getDecision());
     }
 
 

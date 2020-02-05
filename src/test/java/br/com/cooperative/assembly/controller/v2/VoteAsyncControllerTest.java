@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.cooperative.assembly.controller.request.VoteRequest;
 import br.com.cooperative.assembly.controller.v2.adapter.VoteAsyncAdapter;
+import br.com.cooperative.assembly.domain.DecisionVote;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(VoteAsyncController.class)
@@ -44,7 +45,7 @@ public class VoteAsyncControllerTest {
 
     @Test
     public void shouldVoteAsync() throws Exception {
-        VoteRequest voteRequest = VoteRequest.builder().decision(true).document(DOCUMENT).build();
+        VoteRequest voteRequest = VoteRequest.builder().decision(DecisionVote.YES).document(DOCUMENT).build();
 
         String voteRequestBody = jsonVoteWriter.write(voteRequest).getJson();
         MockHttpServletResponse response = mvc.perform(post("/v2/vote/1")

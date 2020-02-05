@@ -1,7 +1,12 @@
 package br.com.cooperative.assembly.domain;
 
+import static br.com.cooperative.assembly.domain.DecisionVote.NO;
+import static br.com.cooperative.assembly.domain.DecisionVote.YES;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -46,11 +51,12 @@ public class Vote {
     private String document;
 
     @Column(name = "DECISION")
-    private boolean decision;
+    @Enumerated(EnumType.STRING)
+    private DecisionVote decision;
 
-    public boolean isVoteYes(){ return this.decision; }
+    public boolean isVoteYes(){ return YES.equals(this.decision); }
 
     public boolean isVoteNo(){
-        return !this.decision;
+        return NO.equals(this.decision);
     }
 }

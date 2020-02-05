@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.cooperative.assembly.controller.request.VoteRequest;
 import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
+import br.com.cooperative.assembly.domain.DecisionVote;
 import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.service.VoteService;
 
@@ -34,8 +35,8 @@ public class VoteAdapterTest {
 
     @Test
     public void shouldAdapterVoteSucessuful(){
-        VoteRequest request = VoteRequest.builder().document(DOCUMENT).decision(true).build();
-        VoteDto response = VoteDto.builder().document(DOCUMENT).decision(true).voteSessionId(ONE).build();
+        VoteRequest request = VoteRequest.builder().document(DOCUMENT).decision(DecisionVote.YES).build();
+        VoteDto response = VoteDto.builder().document(DOCUMENT).decision(DecisionVote.YES).voteSessionId(ONE).build();
 
         when(voteService.registryVote(any())).thenReturn( response );
 

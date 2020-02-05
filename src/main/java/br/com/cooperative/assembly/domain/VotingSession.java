@@ -41,6 +41,10 @@ public class VotingSession {
     @NotNull
     private Agenda agenda;
 
+    @Column(name = "START_VOTING_SESSION")
+    @NotNull
+    private LocalDateTime startVotingSession;
+
     @Column(name = "FINISH_VOTING_SESSION")
     @NotNull
     private LocalDateTime finishVotingSession;

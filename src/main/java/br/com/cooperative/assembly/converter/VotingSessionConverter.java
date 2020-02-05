@@ -20,6 +20,7 @@ public class VotingSessionConverter {
     public VotingSessionDto toVotingSessionDto(Long agendaId, Long timeVotingSession) {
         return VotingSessionDto.builder()
                             .agendaId(agendaId)
+                            .startVotingSession(LocalDateTime.now())
                             .finishVotingSession(buildFinishVotingSession(timeVotingSession))
                             .opened(true)
                         .build();
@@ -29,6 +30,7 @@ public class VotingSessionConverter {
          return VotingSession.builder()
                                 .agenda(agenda)
                                 .opened(votingSessionDto.isOpened())
+                                .startVotingSession(votingSessionDto.getStartVotingSession())
                                 .finishVotingSession(votingSessionDto.getFinishVotingSession())
                             .build();
     }
@@ -37,6 +39,7 @@ public class VotingSessionConverter {
         return VotingSessionDto.builder()
                                 .id(votingSession.getId())
                                 .agendaId(votingSession.getAgenda().getId())
+                                .startVotingSession(votingSession.getStartVotingSession())
                                 .finishVotingSession(votingSession.getFinishVotingSession())
                                 .opened(votingSession.isOpened())
                             .build();
@@ -46,6 +49,7 @@ public class VotingSessionConverter {
         return VotingSessionResponse.builder()
                                     .id(votingSessionDto.getId())
                                     .agendaId(votingSessionDto.getAgendaId())
+                                    .startVotingSession(votingSessionDto.getStartVotingSession())
                                     .finishVotingSession(votingSessionDto.getFinishVotingSession())
                                     .opened(votingSessionDto.isOpened())
                                 .build();

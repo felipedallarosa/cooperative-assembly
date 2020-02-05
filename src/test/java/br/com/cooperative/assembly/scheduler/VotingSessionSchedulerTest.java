@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.cooperative.assembly.controller.v1.adapter.VotingSessionAdapter;
 import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.domain.DecisionVote;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.facede.message.producer.VotingSessionResultProducer;
@@ -44,7 +45,7 @@ public class VotingSessionSchedulerTest {
     @Test
     public void verifyInvalidOpenedVotingSession() {
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
         VotingSession votingSession = VotingSession.builder().id(ONE).build();
         VotingSessionResultResponse response = VotingSessionResultResponse.builder()
                                                                             .votingSession(votingSession)

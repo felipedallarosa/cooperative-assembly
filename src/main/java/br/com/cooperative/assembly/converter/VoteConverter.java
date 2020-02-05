@@ -17,7 +17,7 @@ public class VoteConverter {
         return VoteDto.builder()
                         .voteSessionId(voteSessionId)
                         .document(voteRequest.getDocument())
-                        .decision(voteRequest.isDecision())
+                        .decision(voteRequest.getDecision())
                     .build();
     }
 
@@ -26,7 +26,7 @@ public class VoteConverter {
                             .id(vote.getId())
                             .voteSessionId(vote.getVotingSession().getId())
                             .document(vote.getDocument())
-                            .decision(vote.isDecision())
+                            .decision(vote.getDecision())
                         .build();
     }
 
@@ -35,7 +35,7 @@ public class VoteConverter {
                             .id(voteDto.getId())
                             .voteSessionId(voteDto.getVoteSessionId())
                             .document(voteDto.getDocument())
-                            .decision(voteDto.isDecision())
+                            .decision(voteDto.getDecision())
                         .build();
     }
 
@@ -43,7 +43,7 @@ public class VoteConverter {
         return Vote.builder()
                     .votingSession(votingSession)
                     .document(voteDto.getDocument())
-                    .decision(voteDto.isDecision())
+                    .decision(voteDto.getDecision())
                 .build();
     }
 
@@ -52,7 +52,7 @@ public class VoteConverter {
                 .id(vote.getVoteId())
                 .voteSessionId(vote.getVoteSessionId())
                 .document(vote.getDocument())
-                .decision(vote.isDecision())
+                .decision(vote.getDecision())
             .build();
     }
 }

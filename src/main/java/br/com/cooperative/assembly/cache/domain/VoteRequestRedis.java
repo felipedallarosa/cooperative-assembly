@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
+import br.com.cooperative.assembly.domain.DecisionVote;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,7 +25,7 @@ public class VoteRequestRedis implements Serializable {
 
     private String document;
 
-    private boolean decision;
+    private DecisionVote decision;
 
     private Boolean processed;
 
@@ -32,7 +33,7 @@ public class VoteRequestRedis implements Serializable {
 
     private String txtException;
 
-    public VoteRequestRedis(final Long voteSessionId, final String document, final boolean decision) {
+    public VoteRequestRedis(final Long voteSessionId, final String document, final DecisionVote decision) {
         this.id=generateId(voteSessionId,document);
         this.voteSessionId = voteSessionId;
         this.document = document;

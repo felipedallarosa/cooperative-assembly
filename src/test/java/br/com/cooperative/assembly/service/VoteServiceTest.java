@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import br.com.cooperative.assembly.domain.DecisionVote;
 import br.com.cooperative.assembly.domain.Vote;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VoteDto;
@@ -47,9 +48,9 @@ public class VoteServiceTest {
     @Test
     public void shouldInsertVoteSucessuful(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
         VotingSession votingSession = VotingSession.builder().id(ONE).build();
-        Vote voteDb = Vote.builder().id(ONE).decision(true).document(DOCUMENT).votingSession(votingSession).build();
+        Vote voteDb = Vote.builder().id(ONE).decision(DecisionVote.YES).document(DOCUMENT).votingSession(votingSession).build();
 
         CompletableFuture<Boolean> bool = CompletableFuture.supplyAsync(() -> Boolean.TRUE);
 
@@ -70,7 +71,7 @@ public class VoteServiceTest {
     @Test(expected = InvalidDocumentException.class)
     public void tryInsertVoteButInvalidDocument(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
 
         when(userInfoService.isValidDocument(DOCUMENT)).thenReturn( Boolean.FALSE);
 
@@ -80,7 +81,7 @@ public class VoteServiceTest {
     @Test(expected = BusinessException.class)
     public void tryInsertVoteButVotingSessionInvalid(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
 
         when(userInfoService.isValidDocument(DOCUMENT)).thenReturn( Boolean.TRUE);
 
@@ -92,7 +93,7 @@ public class VoteServiceTest {
     @Test(expected = BusinessException.class)
     public void tryInsertVoteButAssociatedAlreadyVoted(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
         VotingSession votingSession = VotingSession.builder().id(ONE).build();
 
         when(userInfoService.isValidDocument(DOCUMENT)).thenReturn( Boolean.TRUE);

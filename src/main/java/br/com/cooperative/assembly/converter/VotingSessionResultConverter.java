@@ -1,5 +1,7 @@
 package br.com.cooperative.assembly.converter;
 
+import static br.com.cooperative.assembly.domain.VotingSessionResultStatus.generateResultStatus;
+
 import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VotingSessionResultDto;
@@ -15,6 +17,7 @@ public class VotingSessionResultConverter {
                                         .votingSession(votingSession)
                                         .voteYes(voteYes)
                                         .voteNo(voteNo)
+                                        .status(generateResultStatus(voteYes,voteNo))
                                     .build();
     }
 
@@ -23,6 +26,7 @@ public class VotingSessionResultConverter {
                                         .votingSession(votingSessionResultDto.getVotingSession())
                                         .voteYes(votingSessionResultDto.getVoteYes())
                                         .voteNo(votingSessionResultDto.getVoteNo())
+                                        .status(votingSessionResultDto.getStatus())
                                     .build();
     }
 }

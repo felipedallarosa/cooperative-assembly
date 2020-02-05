@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.cooperative.assembly.cache.domain.VoteRequestRedis;
 import br.com.cooperative.assembly.cache.repository.VoteRequestRedisRepository;
+import br.com.cooperative.assembly.domain.DecisionVote;
 import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.exception.BusinessException;
 import br.com.cooperative.assembly.exception.FeignExceptionException;
@@ -49,7 +50,7 @@ public class VoteAsyncServiceTest {
     @Test
     public void shouldInsertVoteAsyncOnRedisAndRabbitSucessuful(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
 
         when(voteRequestRedisRepository.findById(any())).thenReturn( Optional.empty() );
 
@@ -63,7 +64,7 @@ public class VoteAsyncServiceTest {
     @Test( expected = BusinessException.class)
     public void shouldInsertVoteAsyncOnRedisAndRabbitButAlreadyRegistred(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
 
         when(voteRequestRedisRepository.findById(any())).thenReturn( Optional.of(getVoteRequestRedis()) );
 
@@ -131,7 +132,7 @@ public class VoteAsyncServiceTest {
         VoteRequestRedis voteRedis = new VoteRequestRedis();
         voteRedis.setVoteId(ONE);
         voteRedis.setVoteSessionId(ONE);
-        voteRedis.setDecision(true);
+        voteRedis.setDecision(DecisionVote.YES);
         voteRedis.setDocument(DOCUMENT);
         voteRedis.setProcessed(true);
         return voteRedis;

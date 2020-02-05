@@ -1,5 +1,6 @@
 package br.com.cooperative.assembly.controller.v1.response;
 
+import br.com.cooperative.assembly.domain.DecisionVote;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,6 +16,6 @@ public class VoteResponse {
 
     private String document;
 
-    private boolean decision;
+    private DecisionVote decision;
 
 }

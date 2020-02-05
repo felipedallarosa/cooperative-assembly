@@ -15,6 +15,8 @@ public class VotingSessionResponse {
 
     private Long agendaId;
 
+    private LocalDateTime startVotingSession;
+
     private LocalDateTime finishVotingSession;
 
     private boolean opened;

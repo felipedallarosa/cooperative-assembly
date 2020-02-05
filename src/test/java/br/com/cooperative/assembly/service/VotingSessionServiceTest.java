@@ -50,9 +50,11 @@ public class VotingSessionServiceTest {
     @Test
     public void shouldOpenVotingSessionSucessuful(){
 
-        VotingSessionDto request = VotingSessionDto.builder().opened(true).agendaId(ONE).finishVotingSession(LocalDateTime.now()).build();
+        VotingSessionDto request = VotingSessionDto.builder().opened(true).agendaId(ONE)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(LocalDateTime.now()).build();
         Agenda agenda = Agenda.builder().id(ONE).build();
-        VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda).finishVotingSession(LocalDateTime.now()).build();
+        VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(LocalDateTime.now()).build();
 
         when(agendaService.findAgenda(ONE)).thenReturn(agenda);
 
@@ -69,7 +71,8 @@ public class VotingSessionServiceTest {
     @Test(expected = BusinessException.class)
     public void tryOpenVotingSessionButExistsAnotherValidVotingSession(){
 
-        VotingSessionDto request = VotingSessionDto.builder().opened(true).agendaId(ONE).finishVotingSession(LocalDateTime.now()).build();
+        VotingSessionDto request = VotingSessionDto.builder().opened(true).agendaId(ONE)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(LocalDateTime.now()).build();
         Agenda agenda = Agenda.builder().id(ONE).build();
 
         when(agendaService.findAgenda(ONE)).thenReturn(agenda);
@@ -82,7 +85,8 @@ public class VotingSessionServiceTest {
     @Test(expected = BusinessException.class)
     public void tryOpenVotingSessionButInvalidAgenda(){
 
-        VotingSessionDto request = VotingSessionDto.builder().opened(true).agendaId(ONE).finishVotingSession(LocalDateTime.now()).build();
+        VotingSessionDto request = VotingSessionDto.builder().opened(true).agendaId(ONE)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(LocalDateTime.now()).build();
 
         when(agendaService.findAgenda(ONE)).thenThrow(BusinessException.class);
 
@@ -92,7 +96,8 @@ public class VotingSessionServiceTest {
     @Test
     public void shouldFindOpenedSessionByIdSucessuful(){
 
-        VotingSession votingSession = VotingSession.builder().opened(true).id(ONE).finishVotingSession(LocalDateTime.now().plusHours(1)).build();
+        VotingSession votingSession = VotingSession.builder().opened(true).id(ONE)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(LocalDateTime.now().plusHours(1)).build();
 
         when(votingSessionRepository.findByOpenedAndId(true, ONE)).thenReturn(Optional.of(votingSession));
 
@@ -104,7 +109,8 @@ public class VotingSessionServiceTest {
     @Test(expected = BusinessException.class)
     public void tryFindOpenedSessionByIdButNotFoundRegistry(){
 
-        VotingSession votingSession = VotingSession.builder().opened(true).id(ONE).finishVotingSession(LocalDateTime.now()).build();
+        VotingSession votingSession = VotingSession.builder().opened(true).id(ONE)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(LocalDateTime.now()).build();
 
         when(votingSessionRepository.findByOpenedAndId(true, ONE)).thenReturn(Optional.empty());
 
@@ -114,7 +120,8 @@ public class VotingSessionServiceTest {
     @Test(expected = BusinessException.class)
     public void tryFindOpenedSessionByIdButNotValidRegistry(){
 
-        VotingSession votingSession = VotingSession.builder().opened(true).id(ONE).finishVotingSession(LocalDateTime.now().minusMinutes(10)).build();
+        VotingSession votingSession = VotingSession.builder().opened(true).id(ONE)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(LocalDateTime.now().minusMinutes(10)).build();
 
         when(votingSessionRepository.findByOpenedAndId(true, ONE)).thenReturn(Optional.of(votingSession));
 
@@ -126,6 +133,7 @@ public class VotingSessionServiceTest {
 
         Agenda agenda = Agenda.builder().id(ONE).build();
         VotingSession votingSessionDb = VotingSession.builder().opened(false).id(ONE).agenda(agenda)
+            .startVotingSession(LocalDateTime.now())
             .finishVotingSession(LocalDateTime.now().minusHours(1)).build();
 
         when(votingSessionRepository.findByOpened(true)).thenReturn(Arrays.asList(votingSessionDb));

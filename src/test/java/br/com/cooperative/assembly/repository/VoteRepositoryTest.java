@@ -27,7 +27,8 @@ public class VoteRepositoryTest {
     @Test
     public void existsByVotingSessionAndDocument() {
         Agenda agenda = Agenda.builder().id(ONE).description("test agenda").build();
-        VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda).finishVotingSession(
+        VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda)
+            .startVotingSession(LocalDateTime.now()).finishVotingSession(
             LocalDateTime.of(2030,01,17,0,0)).build();
 
         boolean result = voteRepository.existsByVotingSessionAndDocument(votingSessionDb, DOCUMENT);
@@ -38,7 +39,8 @@ public class VoteRepositoryTest {
     @Test
     public void findByVotingSession() {
         Agenda agenda = Agenda.builder().id(ONE).description("test agenda").build();
-        VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda).finishVotingSession(
+        VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda).startVotingSession(
+            LocalDateTime.of(2030,01,17,0,0)).finishVotingSession(
             LocalDateTime.of(2030,01,17,0,0)).build();
 
         List<Vote> result = voteRepository.findByVotingSession(votingSessionDb);

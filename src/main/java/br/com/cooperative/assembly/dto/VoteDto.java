@@ -1,10 +1,9 @@
 package br.com.cooperative.assembly.dto;
 
+import br.com.cooperative.assembly.domain.DecisionVote;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
@@ -17,5 +16,5 @@ public class VoteDto {
 
     private String document;
 
-    private boolean decision;
+    private DecisionVote decision;
 }

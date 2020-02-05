@@ -4,6 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import br.com.cooperative.assembly.domain.DecisionVote;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,5 +19,5 @@ public class VoteRequest {
     @Pattern(regexp="\\d+")
     private String document;
 
-    private boolean decision;
+    private DecisionVote decision;
 }

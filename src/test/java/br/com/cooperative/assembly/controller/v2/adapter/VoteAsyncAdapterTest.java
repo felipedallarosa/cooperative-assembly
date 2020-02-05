@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.cooperative.assembly.cache.service.VoteAsyncService;
 import br.com.cooperative.assembly.controller.request.VoteRequest;
+import br.com.cooperative.assembly.domain.DecisionVote;
 import br.com.cooperative.assembly.dto.VoteDto;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,7 +34,7 @@ public class VoteAsyncAdapterTest {
     @Test
     public void shouldAdapterVoteAsyncSucessuful(){
 
-        VoteDto response = VoteDto.builder().document(DOCUMENT).decision(true).voteSessionId(ONE).build();
+        VoteDto response = VoteDto.builder().document(DOCUMENT).decision(DecisionVote.YES).voteSessionId(ONE).build();
 
         when(voteAsyncService.executeReceiveRequest(ONE, DOCUMENT)).thenReturn( response );
 
@@ -45,7 +46,7 @@ public class VoteAsyncAdapterTest {
 
     @Test
     public void shouldAdapterVoteAsyncByIdSucessuful(){
-        VoteRequest request = VoteRequest.builder().document(DOCUMENT).decision(true).build();
+        VoteRequest request = VoteRequest.builder().document(DOCUMENT).decision(DecisionVote.YES).build();
 
         voteAsyncAdapter.handleRequest(ONE, request);
 

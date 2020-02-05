@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.cooperative.assembly.cache.domain.VoteRequestRedis;
 import br.com.cooperative.assembly.cache.repository.VoteRequestRedisRepository;
+import br.com.cooperative.assembly.domain.DecisionVote;
 import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.exception.InvalidDocumentException;
 import br.com.cooperative.assembly.service.VoteService;
@@ -39,7 +40,7 @@ public class VoteDtoAsyncServiceTest {
     @Test
     public void shouldInsertVoteAsyncSucessuful(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
 
         VoteRequestRedis voteRedis = getVoteRequestRedis();
 
@@ -55,7 +56,7 @@ public class VoteDtoAsyncServiceTest {
     @Test
     public void tryInsertVoteButInvalidDocument(){
 
-        VoteDto request = VoteDto.builder().decision(true).document(DOCUMENT).voteSessionId(ONE).build();
+        VoteDto request = VoteDto.builder().decision(DecisionVote.YES).document(DOCUMENT).voteSessionId(ONE).build();
 
         VoteRequestRedis voteRedis = getVoteRequestRedis();
 
@@ -73,7 +74,7 @@ public class VoteDtoAsyncServiceTest {
         VoteRequestRedis voteRedis = new VoteRequestRedis();
         voteRedis.setVoteId(ONE);
         voteRedis.setVoteSessionId(ONE);
-        voteRedis.setDecision(true);
+        voteRedis.setDecision(DecisionVote.YES);
         voteRedis.setDocument(DOCUMENT);
         voteRedis.setProcessed(true);
         return voteRedis;

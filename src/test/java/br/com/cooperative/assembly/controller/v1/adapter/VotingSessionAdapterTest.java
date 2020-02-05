@@ -46,6 +46,7 @@ public class VotingSessionAdapterTest {
     public void shouldVotingSessionAdapterSucessuful(){
 
         VotingSessionDto response = VotingSessionDto.builder().agendaId(ONE).opened(true)
+            .startVotingSession(LocalDateTime.now())
             .finishVotingSession(LocalDateTime.now()).id(ONE).build();
 
         when(votingSessionService.openVotingSession(any())).thenReturn( response );
@@ -60,6 +61,7 @@ public class VotingSessionAdapterTest {
     public void shouldVotingSessionAdapterSucessufulWhenNullTime(){
 
         VotingSessionDto response = VotingSessionDto.builder().agendaId(ONE).opened(true)
+            .startVotingSession(LocalDateTime.now())
             .finishVotingSession(LocalDateTime.now()).id(ONE).build();
 
         when(votingSessionService.openVotingSession(any())).thenReturn( response );

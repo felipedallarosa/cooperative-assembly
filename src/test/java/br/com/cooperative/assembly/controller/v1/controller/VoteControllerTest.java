@@ -23,6 +23,7 @@ import br.com.cooperative.assembly.controller.v1.VoteController;
 import br.com.cooperative.assembly.controller.v1.adapter.VoteAdapter;
 import br.com.cooperative.assembly.controller.request.VoteRequest;
 import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
+import br.com.cooperative.assembly.domain.DecisionVote;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(VoteController.class)
@@ -46,7 +47,7 @@ public class VoteControllerTest {
 
     @Test
     public void shouldVote() throws Exception {
-        VoteRequest voteRequest = VoteRequest.builder().decision(true).document(DOCUMENT).build();
+        VoteRequest voteRequest = VoteRequest.builder().decision(DecisionVote.YES).document(DOCUMENT).build();
 
         when(voteAdapter.handleRequest(any(),any())).thenReturn(VoteResponse.builder().build());
 
@@ -62,7 +63,7 @@ public class VoteControllerTest {
 
     @Test
     public void tryVoteButInvalidDocument() throws Exception {
-        VoteRequest voteRequest = VoteRequest.builder().decision(true).document(INVALID_DOCUMENT).build();
+        VoteRequest voteRequest = VoteRequest.builder().decision(DecisionVote.YES).document(INVALID_DOCUMENT).build();
 
         when(voteAdapter.handleRequest(any(),any())).thenReturn(VoteResponse.builder().build());
 

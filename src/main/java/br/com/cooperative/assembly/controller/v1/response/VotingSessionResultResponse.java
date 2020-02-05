@@ -1,6 +1,7 @@
 package br.com.cooperative.assembly.controller.v1.response;
 
 import br.com.cooperative.assembly.domain.VotingSession;
+import br.com.cooperative.assembly.domain.VotingSessionResultStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,5 +14,6 @@ public class VotingSessionResultResponse {
     private VotingSession votingSession;
     private Long voteYes;
     private Long voteNo;
+    private VotingSessionResultStatus status;
 
 }

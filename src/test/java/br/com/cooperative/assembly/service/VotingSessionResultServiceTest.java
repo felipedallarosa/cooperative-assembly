@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.cooperative.assembly.domain.Agenda;
+import br.com.cooperative.assembly.domain.DecisionVote;
 import br.com.cooperative.assembly.domain.Vote;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VotingSessionResultDto;
@@ -46,12 +47,35 @@ public class VotingSessionResultServiceTest {
     }
 
     @Test
-    public void shouldOpenVotingSessionSucessuful(){
+    public void shouldOpenVotingSessionSucessufulApproved(){
 
         Agenda agenda = Agenda.builder().id(ONE).build();
         VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda)
+            .startVotingSession(LocalDateTime.now())
             .opened(true).finishVotingSession(LocalDateTime.now().plusMinutes(10)).build();
-        Vote voteDb = Vote.builder().id(ONE).decision(true).document(DOCUMENT).votingSession(votingSessionDb).build();
+        Vote voteDb = Vote.builder().id(ONE).decision(DecisionVote.YES).document(DOCUMENT).votingSession(votingSessionDb).build();
+
+        when(votingSessionRepository.findById(ONE)).thenReturn(Optional.of(votingSessionDb));
+
+        when(voteRepository.findByVotingSession(any())).thenReturn(Arrays.asList(voteDb));
+
+        when(votingSessionRepository.save(any(VotingSession.class))).thenReturn(votingSessionDb);
+
+        VotingSessionResultDto response =  votingSessionResultService.generateResultById(ONE);
+
+        assertEquals( ONE , response.getVoteYes() );
+        assertEquals( ZERO , response.getVoteNo() );
+        assertEquals( ONE , response.getVotingSession().getId() );
+    }
+
+    @Test
+    public void shouldOpenVotingSessionSucessufulREJECTED(){
+
+        Agenda agenda = Agenda.builder().id(ONE).build();
+        VotingSession votingSessionDb = VotingSession.builder().id(ONE).agenda(agenda)
+            .startVotingSession(LocalDateTime.now())
+            .opened(true).finishVotingSession(LocalDateTime.now().plusMinutes(10)).build();
+        Vote voteDb = Vote.builder().id(ONE).decision(DecisionVote.NO).document(DOCUMENT).votingSession(votingSessionDb).build();
 
         when(votingSessionRepository.findById(ONE)).thenReturn(Optional.of(votingSessionDb));
 
