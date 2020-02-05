@@ -1,7 +1,7 @@
 package br.com.cooperative.assembly.converter;
 
 import br.com.cooperative.assembly.controller.request.AgendaRequest;
-import br.com.cooperative.assembly.controller.response.AgendaResponse;
+import br.com.cooperative.assembly.controller.v1.response.AgendaResponse;
 import br.com.cooperative.assembly.domain.Agenda;
 import br.com.cooperative.assembly.dto.AgendaDto;
 

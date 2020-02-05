@@ -19,9 +19,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.cooperative.assembly.controller.adapter.VoteAdapter;
+import br.com.cooperative.assembly.controller.v1.VoteController;
+import br.com.cooperative.assembly.controller.v1.adapter.VoteAdapter;
 import br.com.cooperative.assembly.controller.request.VoteRequest;
-import br.com.cooperative.assembly.controller.response.VoteResponse;
+import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(VoteController.class)

@@ -6,7 +6,7 @@ import java.util.Objects;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResponse;
 import br.com.cooperative.assembly.domain.Agenda;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VotingSessionDto;

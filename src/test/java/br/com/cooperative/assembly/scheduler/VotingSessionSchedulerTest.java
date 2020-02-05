@@ -11,11 +11,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import br.com.cooperative.assembly.controller.adapter.VotingSessionAdapter;
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.controller.v1.adapter.VotingSessionAdapter;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VoteDto;
-import br.com.cooperative.assembly.facede.message.VotingSessionProducer;
+import br.com.cooperative.assembly.facede.message.producer.VotingSessionResultProducer;
 import br.com.cooperative.assembly.service.VotingSessionService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -33,11 +33,12 @@ public class VotingSessionSchedulerTest {
     private VotingSessionService votingSessionService;
 
     @Mock
-    private VotingSessionProducer votingSessionProducer;
+    private VotingSessionResultProducer votingSessionResultProducer;
 
     @Before
     public void setUp() {
-        votingSessionScheduler = new VotingSessionScheduler(votingSessionAdapter, votingSessionService, votingSessionProducer);
+        votingSessionScheduler = new VotingSessionScheduler(votingSessionAdapter, votingSessionService,
+            votingSessionResultProducer);
     }
 
     @Test
@@ -57,7 +58,7 @@ public class VotingSessionSchedulerTest {
 
         votingSessionScheduler.verifyInvalidOpenedVotingSession();
 
-        verify(votingSessionProducer).send(any());
+        verify(votingSessionResultProducer).send(any());
     }
 
 }

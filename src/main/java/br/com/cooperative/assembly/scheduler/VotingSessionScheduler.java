@@ -3,9 +3,9 @@ package br.com.cooperative.assembly.scheduler;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import br.com.cooperative.assembly.controller.adapter.VotingSessionAdapter;
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
-import br.com.cooperative.assembly.facede.message.VotingSessionProducer;
+import br.com.cooperative.assembly.controller.v1.adapter.VotingSessionAdapter;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.facede.message.producer.VotingSessionResultProducer;
 import br.com.cooperative.assembly.service.VotingSessionService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,14 +17,14 @@ public class VotingSessionScheduler  {
 
     private VotingSessionService votingSessionService;
 
-    private VotingSessionProducer votingSessionProducer;
+    private VotingSessionResultProducer votingSessionResultProducer;
 
     public VotingSessionScheduler(final VotingSessionAdapter votingSessionAdapter,
         final VotingSessionService votingSessionService,
-        final VotingSessionProducer votingSessionProducer) {
+        final VotingSessionResultProducer votingSessionResultProducer) {
         this.votingSessionAdapter = votingSessionAdapter;
         this.votingSessionService = votingSessionService;
-        this.votingSessionProducer = votingSessionProducer;
+        this.votingSessionResultProducer = votingSessionResultProducer;
     }
 
     @Scheduled(cron = "1 * * * * *")
@@ -35,7 +35,7 @@ public class VotingSessionScheduler  {
             .forEach(votingSession -> {
                 VotingSessionResultResponse result = votingSessionAdapter.handleRequest(votingSession);
                 log.warn("Sending Voting Session Result: " + result);
-                votingSessionProducer.send(result.toString());
+                votingSessionResultProducer.send(result);
             });
 
         log.warn("Scheduling finished...");

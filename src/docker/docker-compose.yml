@@ -15,6 +15,29 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
       - RABBITMQ_DEFAULT_VHOST=/
 
+  redis:
+    image: bitnami/redis:5.0
+    hostname: redis
+    container_name: redis
+    restart: on-failure
+    ports:
+      - 6379:6379
+    environment:
+      - REDIS_PASSWORD=123456
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: redis-commander
+    hostname: redis-commander
+    restart: on-failure
+    env_file:
+      - redis.env
+    ports:
+      - "16379:8081"
+    depends_on:
+      - redis
+
+
   oracle:
     build: oracle
     image: my-oracle

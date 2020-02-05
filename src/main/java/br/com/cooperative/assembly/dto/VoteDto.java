@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class VoteDto {
 
+    private Long id;
+
     private Long voteSessionId;
 
     private String document;

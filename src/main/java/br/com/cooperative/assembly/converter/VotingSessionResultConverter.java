@@ -1,6 +1,6 @@
 package br.com.cooperative.assembly.converter;
 
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VotingSessionResultDto;
 

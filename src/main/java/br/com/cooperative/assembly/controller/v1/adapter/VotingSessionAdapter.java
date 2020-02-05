@@ -1,12 +1,12 @@
-package br.com.cooperative.assembly.controller.adapter;
+package br.com.cooperative.assembly.controller.v1.adapter;
 
 import static br.com.cooperative.assembly.converter.VotingSessionConverter.toVotingSessionResponse;
 import static br.com.cooperative.assembly.converter.VotingSessionResultConverter.toVotingSessionResultResponse;
 
 import org.springframework.stereotype.Component;
 
-import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
 import br.com.cooperative.assembly.converter.VotingSessionConverter;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VotingSessionDto;

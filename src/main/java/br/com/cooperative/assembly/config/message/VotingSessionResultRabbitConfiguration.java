@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.config;
+package br.com.cooperative.assembly.config.message;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class VotingSessionRabbitResultConfiguration {
+public class VotingSessionResultRabbitConfiguration {
 
     public static final String ROUTING_KEY_NAME = "cooperative-assembly.voting-session-result.message";
 

@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller.adapter;
+package br.com.cooperative.assembly.controller.v1.adapter;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
 import br.com.cooperative.assembly.converter.VotingSessionConverter;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VotingSessionDto;

@@ -1,7 +1,7 @@
 package br.com.cooperative.assembly.converter;
 
 import br.com.cooperative.assembly.controller.request.VoteRequest;
-import br.com.cooperative.assembly.controller.response.VoteResponse;
+import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
 import br.com.cooperative.assembly.domain.Vote;
 import br.com.cooperative.assembly.domain.VotingSession;
 import br.com.cooperative.assembly.dto.VoteDto;
@@ -22,14 +22,16 @@ public class VoteConverter {
 
     public static VoteDto toVoteDto(Vote vote) {
         return VoteDto.builder()
-            .voteSessionId(vote.getVotingSession().getId())
-            .document(vote.getDocument())
-            .decision(vote.isDecision())
-            .build();
+                            .id(vote.getId())
+                            .voteSessionId(vote.getVotingSession().getId())
+                            .document(vote.getDocument())
+                            .decision(vote.isDecision())
+                        .build();
     }
 
     public static VoteResponse toVoteResponse(VoteDto voteDto) {
         return VoteResponse.builder()
+                            .id(voteDto.getId())
                             .voteSessionId(voteDto.getVoteSessionId())
                             .document(voteDto.getDocument())
                             .decision(voteDto.isDecision())

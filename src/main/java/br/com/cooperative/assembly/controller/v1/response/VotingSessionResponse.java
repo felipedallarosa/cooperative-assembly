@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller.response;
+package br.com.cooperative.assembly.controller.v1.response;
 
 import java.time.LocalDateTime;
 

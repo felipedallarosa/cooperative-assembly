@@ -14,7 +14,8 @@ public enum ErrorType {
     INTERNAL_ERROR(HttpStatus.INTERNAL_SERVER_ERROR),
     NOT_FOUND(HttpStatus.NOT_FOUND),
     VALIDATION(HttpStatus.BAD_REQUEST),
-    PRECONDITION_FAILED(HttpStatus.PRECONDITION_FAILED);
+    PRECONDITION_FAILED(HttpStatus.PRECONDITION_FAILED),
+    PROCESSING(HttpStatus.PROCESSING);
 
     private final HttpStatus httpStatus;
 }

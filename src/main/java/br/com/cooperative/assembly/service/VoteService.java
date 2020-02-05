@@ -64,7 +64,7 @@ public class VoteService {
         try {
             CompletableFuture.allOf(isValidDocument).join();
             validateDocumentNumber(voteDto, isValidDocument.get());
-        } catch (Throwable e) {
+        } catch (Exception e) {
             validateDocumentNumber(voteDto, Boolean.FALSE);
         }
         return votingSession;

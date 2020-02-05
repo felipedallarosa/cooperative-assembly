@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller.response;
+package br.com.cooperative.assembly.controller.v1.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,6 +8,8 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class VoteResponse {
+
+    private Long id;
 
     private Long voteSessionId;
 

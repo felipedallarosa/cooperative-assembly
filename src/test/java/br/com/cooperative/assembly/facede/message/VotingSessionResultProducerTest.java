@@ -1,7 +1,7 @@
 package br.com.cooperative.assembly.facede.message;
 
 import static br.com.cooperative.assembly.config.CooperativeAssemblyConfiguration.EXCHANGE_NAME;
-import static br.com.cooperative.assembly.config.VotingSessionRabbitResultConfiguration.ROUTING_KEY_NAME;
+import static br.com.cooperative.assembly.config.message.VotingSessionResultRabbitConfiguration.ROUTING_KEY_NAME;
 import static org.mockito.Mockito.*;
 
 import org.junit.Before;
@@ -11,26 +11,30 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
-@RunWith(MockitoJUnitRunner.class)
-public class VotingSessionProducerTest {
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.facede.message.producer.VotingSessionResultProducer;
 
-    private VotingSessionProducer votingSessionProducer;
+@RunWith(MockitoJUnitRunner.class)
+public class VotingSessionResultProducerTest {
+
+    private VotingSessionResultProducer votingSessionResultProducer;
 
     @Mock
     private RabbitTemplate rabbitTemplate;
 
     @Before
     public void setUp() {
-        votingSessionProducer = new VotingSessionProducer(rabbitTemplate);
+        votingSessionResultProducer = new VotingSessionResultProducer(rabbitTemplate);
     }
 
     @Test
     public void testSendMessage() {
-        String message = "Test";
 
         String queueName = "queueName";
 
-        votingSessionProducer.send(message);
+        VotingSessionResultResponse message = VotingSessionResultResponse.builder().build();
+
+        votingSessionResultProducer.send(message);
 
         verify(rabbitTemplate).convertAndSend(EXCHANGE_NAME, ROUTING_KEY_NAME, message);
     }

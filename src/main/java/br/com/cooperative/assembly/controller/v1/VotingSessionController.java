@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller;
+package br.com.cooperative.assembly.controller.v1;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cooperative.assembly.controller.adapter.VotingSessionAdapter;
-import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.controller.v1.adapter.VotingSessionAdapter;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 

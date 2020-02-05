@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller.adapter;
+package br.com.cooperative.assembly.controller.v1.adapter;
 
 import static br.com.cooperative.assembly.converter.AgendaConverter.toAgendaDto;
 import static br.com.cooperative.assembly.converter.AgendaConverter.toAgendaResponse;
@@ -6,7 +6,7 @@ import static br.com.cooperative.assembly.converter.AgendaConverter.toAgendaResp
 import org.springframework.stereotype.Component;
 
 import br.com.cooperative.assembly.controller.request.AgendaRequest;
-import br.com.cooperative.assembly.controller.response.AgendaResponse;
+import br.com.cooperative.assembly.controller.v1.response.AgendaResponse;
 import br.com.cooperative.assembly.dto.AgendaDto;
 import br.com.cooperative.assembly.service.AgendaService;
 

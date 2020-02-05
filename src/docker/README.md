@@ -29,6 +29,17 @@ RABBIT_USERNAME: guest
 RABBIT_PASSWORD: guest
 RABBIT_VIRTUAL_HOST: assembly
 ```
+
+#### Redis
+```
+REDIS_HOST: redis
+REDIS_PORT: 6379
+REDIS_PASSWORD: 123456
+```
+
+#### Redis Commander
+- http://localhost:16379
+
 ### Administração Web
 #### RabbitMQ
 - http://localhost:15672

@@ -7,20 +7,23 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-public class VotingSessionConsumerTest {
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.facede.message.consumer.VotingSessionResultConsumer;
 
-    private VotingSessionConsumer votingSessionConsumer;
+@RunWith(SpringJUnit4ClassRunner.class)
+public class VotingSessionResultConsumerTest {
+
+    private VotingSessionResultConsumer votingSessionResultConsumer;
 
     @Before
     public void setUp() {
-        votingSessionConsumer = new VotingSessionConsumer();
+        votingSessionResultConsumer = new VotingSessionResultConsumer();
     }
 
     @Test
     public void main() {
         try {
-            votingSessionConsumer.receive("test");
+            votingSessionResultConsumer.receive(VotingSessionResultResponse.builder().build());
         } catch(Exception e) {
             fail("Should not have thrown any exception");
         }

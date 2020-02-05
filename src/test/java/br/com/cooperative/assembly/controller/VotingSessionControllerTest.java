@@ -16,9 +16,10 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import br.com.cooperative.assembly.controller.adapter.VotingSessionAdapter;
-import br.com.cooperative.assembly.controller.response.VotingSessionResponse;
-import br.com.cooperative.assembly.controller.response.VotingSessionResultResponse;
+import br.com.cooperative.assembly.controller.v1.VotingSessionController;
+import br.com.cooperative.assembly.controller.v1.adapter.VotingSessionAdapter;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResponse;
+import br.com.cooperative.assembly.controller.v1.response.VotingSessionResultResponse;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(VotingSessionController.class)

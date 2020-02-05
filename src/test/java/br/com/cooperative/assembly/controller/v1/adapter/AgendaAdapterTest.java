@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller.adapter;
+package br.com.cooperative.assembly.controller.v1.adapter;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -11,7 +11,7 @@ import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.com.cooperative.assembly.controller.request.AgendaRequest;
-import br.com.cooperative.assembly.controller.response.AgendaResponse;
+import br.com.cooperative.assembly.controller.v1.response.AgendaResponse;
 import br.com.cooperative.assembly.dto.AgendaDto;
 import br.com.cooperative.assembly.service.AgendaService;
 

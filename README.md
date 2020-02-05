@@ -51,12 +51,7 @@ For Performance
 - Code optimization was used.
 - Indexes in the database.
 - Used CompletableFuture to the External cpf verification.
-
-- To avoid over engineering, the following suggestions were left for a v2:
--- The data carried over in the queue must be in JSON format.
--- The services will be asynchronous, and the requests coming from the controllerV2, passed through the adapter and the adapter will post in the "Rabbit" queue. (For processing management, Reddis will be used)
--- In the Voting service, at the end of the existing processing, the total of that voting session in Reddis must be updated.
--- The result generation service will be fed with data from Reddis.
+- Added "Redis" and "RabbitMQ" to generate asynchronous voting, thus generating better performance in times of high demand.
 
 Points for DEVOPS discussions
 - Security should be reviewed, and some secure authentication type "oauth2" must be added

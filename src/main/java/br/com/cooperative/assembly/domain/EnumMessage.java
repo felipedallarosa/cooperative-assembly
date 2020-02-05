@@ -9,6 +9,7 @@ public enum EnumMessage {
     ASSOCIATE_ALREADY_VOTED("associate.already.voted"),
     EXTERNAL_SERVICE_UNAVALIABLE("external.service.unavaliable"),
     INVALID_DOCUMENT("invalid.document"),
+    VOTE_REGISTRY_NOT_FOUNT("vote.registry.not.found"),
     INVALID_VOTING_SESSION_OPENED("invalid.voting.session.opened"),
     VOTING_SESSION_ALREADY_OPENED("voting.session.already.opened"),
     AGENDA_REGISTRY_EXISTS("agenda.registry.exists"),

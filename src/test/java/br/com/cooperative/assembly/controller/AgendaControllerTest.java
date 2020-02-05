@@ -20,9 +20,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.cooperative.assembly.controller.adapter.AgendaAdapter;
+import br.com.cooperative.assembly.controller.v1.AgendaController;
+import br.com.cooperative.assembly.controller.v1.adapter.AgendaAdapter;
 import br.com.cooperative.assembly.controller.request.AgendaRequest;
-import br.com.cooperative.assembly.controller.response.AgendaResponse;
+import br.com.cooperative.assembly.controller.v1.response.AgendaResponse;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(AgendaController.class)

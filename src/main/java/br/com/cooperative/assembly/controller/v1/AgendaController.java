@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller;
+package br.com.cooperative.assembly.controller.v1;
 
 import javax.validation.Valid;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cooperative.assembly.controller.adapter.AgendaAdapter;
+import br.com.cooperative.assembly.controller.v1.adapter.AgendaAdapter;
 import br.com.cooperative.assembly.controller.request.AgendaRequest;
-import br.com.cooperative.assembly.controller.response.AgendaResponse;
+import br.com.cooperative.assembly.controller.v1.response.AgendaResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 

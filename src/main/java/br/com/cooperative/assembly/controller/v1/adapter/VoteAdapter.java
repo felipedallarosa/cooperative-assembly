@@ -1,4 +1,4 @@
-package br.com.cooperative.assembly.controller.adapter;
+package br.com.cooperative.assembly.controller.v1.adapter;
 
 import static br.com.cooperative.assembly.converter.VoteConverter.toVoteDto;
 import static br.com.cooperative.assembly.converter.VoteConverter.toVoteResponse;
@@ -6,7 +6,7 @@ import static br.com.cooperative.assembly.converter.VoteConverter.toVoteResponse
 import org.springframework.stereotype.Component;
 
 import br.com.cooperative.assembly.controller.request.VoteRequest;
-import br.com.cooperative.assembly.controller.response.VoteResponse;
+import br.com.cooperative.assembly.controller.v1.response.VoteResponse;
 import br.com.cooperative.assembly.dto.VoteDto;
 import br.com.cooperative.assembly.service.VoteService;
 

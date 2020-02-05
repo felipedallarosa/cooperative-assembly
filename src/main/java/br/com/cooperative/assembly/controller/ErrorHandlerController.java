@@ -18,6 +18,7 @@ import br.com.cooperative.assembly.exception.BusinessException;
 import br.com.cooperative.assembly.exception.ErrorResponse;
 import br.com.cooperative.assembly.exception.FeignExceptionException;
 import br.com.cooperative.assembly.exception.InvalidDocumentException;
+import br.com.cooperative.assembly.exception.ProcessingException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -40,6 +41,13 @@ public class ErrorHandlerController extends ResponseEntityExceptionHandler {
     public final ResponseEntity<ErrorResponse> handleFeignExceptionException(final FeignExceptionException feignExceptionException){
         ErrorResponse errorResponse = feignExceptionException.getErrorResponse();
         return new ResponseEntity<>(errorResponse, feignExceptionException.getType().getHttpStatus());
+    }
+
+
+    @ExceptionHandler(ProcessingException.class)
+    public final ResponseEntity<ErrorResponse> handleProcessingException(final ProcessingException processingException){
+        ErrorResponse errorResponse = processingException.getErrorResponse();
+        return new ResponseEntity<>(errorResponse, processingException.getType().getHttpStatus());
     }
 
     @Override
