@@ -1,6 +1,6 @@
 package br.com.cooperative.assembly.controller.request;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class AgendaRequest {
 
-    @NotEmpty
-    @Size(min=5, max=300)
+    @NotBlank(message = "{request.agenda.description}")
+    @Size(min=5, max=300, message = "{request.agenda.description}")
     private String description;
 }

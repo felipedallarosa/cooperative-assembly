@@ -85,8 +85,8 @@ public class VotingSessionResultServiceTest {
 
         VotingSessionResultDto response =  votingSessionResultService.generateResultById(ONE);
 
-        assertEquals( ONE , response.getVoteYes() );
-        assertEquals( ZERO , response.getVoteNo() );
+        assertEquals( ZERO , response.getVoteYes() );
+        assertEquals( ONE, response.getVoteNo() );
         assertEquals( ONE , response.getVotingSession().getId() );
     }
 
